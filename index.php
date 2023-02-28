@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zaun|Magasin spécialisé dans la vente de champignon</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 </head>
 
 <body>

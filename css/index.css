@@ -1,5 +1,8 @@
-
-
-#menu{
+body{
+    background-color: green;
+    margin: 0%;
+}
+header{
+    height: 100px;
     background-color: blue;
 }
