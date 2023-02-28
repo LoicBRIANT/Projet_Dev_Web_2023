@@ -11,6 +11,7 @@
 </head>
 
 <body>
-    <div>blabla</div>
+    <?php include "header.php"; ?>
+    <div>blablaaa</div>
 </body>
 </html>
