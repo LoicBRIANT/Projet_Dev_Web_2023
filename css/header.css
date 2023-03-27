@@ -1,0 +1,130 @@
+header{
+    height: 100px;
+    background-color: #312e29;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header >*{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#icon_zaun {
+    height: 80px;
+    width: auto;
+    margin: 0px;
+    margin-left: 20px;
+    order: 1;
+}
+#titre_menu {
+    order: 2;
+    font-size: 40px;
+    color: #a16510;
+    border-right: solid 2px #a16510;
+    padding-bottom: 15px;
+    padding-top: 15px;
+
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: 0px;
+}
+.search-container {
+    order: 3;
+    width: 60%;
+    height: 56px;
+}
+
+.search-container form{
+    display: flex;
+}
+
+.search-container input[type=text]{
+    order: 1;
+    border: 3px solid #a16510;
+    background-color: #76bc3f;
+    height: 50px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    flex: 1 1 auto;
+    padding: 0px;
+    font-size: 22px;
+    padding-left: 10px;
+}
+
+.search-container input[type=text]:focus{
+    
+    outline: 2px solid #83510c;
+
+}
+
+.search-container button{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    background-color: #9d7d2b;
+    border: 0px;
+}
+
+.search-container input[type=text]:focus~div{
+    outline: 2px solid #83510c;
+
+}
+
+.search-container #search{
+    order: 2;
+    height: 50px;
+    width: 50px;
+    border: 3px solid #a16510;
+    background-color: #9d7d2b;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+    padding: 0px;
+}
+.search-container form{
+    width: 100%;
+    height: 100%;
+}
+
+.search-container img{
+    width :50px;
+}
+
+#compte{
+    order: 4;
+    border: 3px solid #a16510;
+    background-color: #9d7d2b;
+    height: 60px;
+    width: 100px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+#compte p{
+    margin: 0px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#shop{
+    order: 5;
+    border: 3px solid #a16510;
+    background-color: #9d7d2b;
+    height: 60px;
+    width: 60px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#shop img{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 50px;
+    width: 50px;
+}
+
