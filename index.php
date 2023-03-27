@@ -14,5 +14,6 @@
 <body>
     <?php include "header.php"; ?>
     <div>blablaaaaaaaa</div>
+    <?php include "footer.php"; ?>
 </body>
 </html>

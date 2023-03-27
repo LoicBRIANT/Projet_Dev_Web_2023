@@ -1,0 +1,53 @@
+footer{
+    height: 100px;
+    background-color: #312e29;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #a16510;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    justify-content: center;
+    gap: 80px;
+}
+
+footer a{
+
+    color: #a16510;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+footer a:hover{
+
+    color: #ce8826;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+footer a:active{
+
+    color: #d6ad72;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+#div_1 {
+    order: 1;
+}
+
+#div_2 {
+    order: 2;
+}
+#div_3 {
+    order: 3;
+}
+#div_4 {
+    order: 4;
+}
