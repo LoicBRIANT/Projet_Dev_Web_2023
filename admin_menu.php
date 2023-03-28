@@ -6,7 +6,7 @@
         <br>    
         <title>Menu_de_l'administrateur
         </title> 
-        <link rel="stylesheet" type="text/css" href="/css/style_admin_menu.css">
+        <link rel="stylesheet" type="text/css" href="css/style_admin_menu.css">
     </head> 
 
         <br>
