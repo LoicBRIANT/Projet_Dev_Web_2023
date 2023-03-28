@@ -8,7 +8,7 @@
     </head> 
         <br>
 
-    <form id="form">
+    <body>
 
         <div class="title">Journal des activités</div>
         <br>
@@ -22,5 +22,5 @@
         <pre> Action            heure           utilisateur concerné</pre>
         <br>
         
-    </form>
+    </body>
  </html>
