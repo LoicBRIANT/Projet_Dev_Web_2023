@@ -1,0 +1,17 @@
+body{
+    background-color: #db928c;
+    margin: 8%;
+    display: grid;
+}
+.element{
+    margin-left: 8% ;
+}
+.tableau{
+    grid-column: 1/3;
+    display: flex;
+}
+
+.boutton{
+    grid-column: 3;
+    grid-row: 1;
+}
