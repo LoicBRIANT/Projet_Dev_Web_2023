@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(144,132,124);
+  }
+
+.title {
+    text-align: center;
+  }
+
+  pre {
+    text-align: center;
+  }
+
+  .ligne {
+    width: 13cm;
+    height: 10px;
+    border-top: 1px solid black;
+    position: absolute;
+    right: 19cm;
+  }
