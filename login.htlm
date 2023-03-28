@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>   
+     <br>
+
+    <form id="form">
+
+
+        <div class="title">Login</div>
+        <br>
+        <div class="input-container ic1">
+            <label for="Adresse e-mail" class="placeholder">Adresse e-mail : </label>
+            <br>
+            <input id="Adresse e-mail" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+        </div>
+        <br>
+        <div class="input-container ic1">
+            <label for="Mot de passe" class="placeholder">Mot de passe :</label>
+            <br>
+            <input id="Mot de passe" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+        </div>
+
+        <br><br>
+            <div class="input-container-form ic1">
+                <button type="text" class="Se connecter">Se connecter</button>
+            </div>
+             <div class="input-container-form ic1">
+                <button type="text" class="Créer compte">Créer compte</button>
+            </div>
+            <div class="input-container-form ic1">
+                <button type="text" class="Retour vers l'accueil">Retour vers l'accueil</button>
+            </div>
+
+
+    </form>
+</body>
+
+
+</html>
