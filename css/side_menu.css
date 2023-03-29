@@ -1,0 +1,45 @@
+#side_menu{
+    background-color: #574d46;
+    width: 243px;
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#champinion{
+    order: 1;
+}
+
+#Figurine{
+    order: 2;
+}
+
+#Jeux{
+    order: 3;
+}
+
+#shimmer{
+    order: 4;
+}
+
+.categorie{
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    border-bottom: 2px solid #38322d;
+}
+
+.categorie button{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #574d46;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.categorie :hover{
+    background-color: #a16510;
+}

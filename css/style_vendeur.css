@@ -1,0 +1,64 @@
+body {
+    background-color: rgb(144,132,124);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.title {
+    text-align: center;
+    font-size: 48px;
+  }
+
+.carre {
+    position: absolute; 
+    left: 20cm; 
+    width: 150px; 
+    height: 150px; 
+    background: rgb(112,180,116);
+    border: 2px solid rgb(129, 63, 15);
+}
+
+
+button {
+    background-color: rgb(96,84,76);
+    border: 2px solid rgb(168, 104, 28);
+    color: black; 
+    padding: 10px 20px; 
+    font-weight: bold; 
+  }
+
+  p {
+    position: absolute; 
+    left: 27cm; 
+    margin: 0;
+  }
+
+  .pani {
+    position: absolute;
+    top: 6cm;
+    right: 27.5cm;
+  }
+
+  .s_abon {
+    position: absolute;
+    top: 7.5cm;
+    right: 27.25cm;
+  }
+
+  .comm {
+    position: absolute;
+    top: 9cm;
+    right: 27.25cm;
+  }
+
+  .complet {
+    position: absolute;
+    top: 7.5cm;
+    right: 17cm;
+  }
+
+  .vente {
+    position: absolute;
+    top: 10.5cm;
+    right: 26.75cm;
+  }
