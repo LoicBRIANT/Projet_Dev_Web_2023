@@ -1,8 +1,15 @@
+body{
+  background-color:rgb(144,132,124) ;
+}
+img{
+  max-width: 480px;
+  max-height: 360px;
+}
 .product {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin: 20px;
   }
   
@@ -25,11 +32,11 @@
     margin-left: 10%;
     min-width: 25%;
   }
-  form{
+  .formulaire{
     display: flex;
     flex-direction: column;
   }
-  form >*{
+  .formulaire >*{
     margin: 10%;
   }
   .product-details h1 {
@@ -42,7 +49,7 @@
     line-height: 1.5;
   }
   
-  form {
+  .formulaire {
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -84,7 +91,10 @@
   .liste_info{
     display: flex;
   }
-
+.liste_info>li{
+  height: 60px;
+  width: 180px;
+}
   li{
     margin: 10%;
     position: relative;
