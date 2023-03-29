@@ -1,11 +1,13 @@
 .product {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     margin: 20px;
   }
   
   .product-image {
+    display: flex;
     flex: 1;
     margin-right: 20px;
   }
@@ -16,7 +18,10 @@
   }
   
   .product-details {
+    display: flex;
+    flex-direction: column;
     flex: 2;
+    margin-left: 10%;
   }
   
   .product-details h1 {
@@ -57,4 +62,24 @@
     border-radius: 3px;
     cursor: pointer;
     font-size: 16px;
+  }
+
+  .autre{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  ul{
+    list-style: none;
+    padding: 0%;
+}
+  .liste_info{
+    display: flex;
+  }
+
+  li{
+    margin: 10%;
+    position: relative;
+    border: black;
+    border-style: solid;
   }
