@@ -1,29 +1,48 @@
-body{
+
+.page{
+    text-align: center ;
+    margin-top: 10%;
+    margin-left: 10% ;
     display: grid;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background-color:rgb(144,132,124) ;
+}
+.photo_desc{
+    grid-row: 1/3;
+    grid-column: 1/3;
 }
 .div_image_pcom{
-    height: 45vh;
+    margin: 10%;
+    height: 30vh;
     grid-column: 1/3;
     background-color: aqua;
     border-radius: 1%;
 }
 li{
     list-style: none;
-    padding: 0%;
 }
 ul{
     display: flex;
+    justify-content: top;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: top;
     list-style: none;
     margin: 0;
     padding: 0;
     grid-column: 3/3;
     grid-row: 1/3;
 }
-
-.info_produit{
-    grid-row: 2/3;
+.infos_utiles{
+    justify-content: top;
+    margin-top : 50%;
+    background-color: black;
 }
+.info_produit{
+    margin-top: 25%;
+    margin: 10%;
+    grid-row: inherit;
+    padding: 10%;
+    background-color: aquamarine;
+}
+
