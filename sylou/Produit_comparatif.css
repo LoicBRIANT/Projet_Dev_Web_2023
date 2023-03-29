@@ -1,8 +1,9 @@
-
+body{
+    
+    background-color:rgb(144,132,124) ;
+}
 .page{
     text-align: center ;
-    margin-top: 10%;
-    margin-left: 10% ;
     display: grid;
     width: 100%;
     height: 100vh;
