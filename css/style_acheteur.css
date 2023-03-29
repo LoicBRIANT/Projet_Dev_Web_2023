@@ -1,0 +1,37 @@
+button {
+    background-color: rgb(96,84,76);
+    border: 2px solid rgb(168, 104, 28);
+    color: black; 
+    padding: 10px 20px; 
+    font-weight: bold; 
+  }
+
+  p {
+    position: absolute; 
+    left: 27cm; 
+    margin: 0;
+  }
+
+  .pani {
+    position: absolute;
+    top: 7.5cm;
+    right: 27.5cm;
+  }
+
+  .s_abon {
+    position: absolute;
+    top: 8cm;
+    right: 17cm;
+  }
+
+  .comm {
+    position: absolute;
+    top: 9cm;
+    right: 25.5cm;
+  }
+
+  .complet {
+    position: absolute;
+    top: 9cm;
+    right: 25.5cm;
+  }
