@@ -1,0 +1,76 @@
+#Commandes{
+    width: 85%;
+    height: 100vh;
+    margin-left: 15%;
+    background-color: #8f8778;
+    padding-left: 150px;
+    position: relative;;
+}
+
+#Commandes #titre{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#exit{
+    width: 100px;
+    background-color: #5e554f;
+    height: 24px;
+    border: #a16510 solid 2px;
+    text-align: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    right: 10%;
+    position: absolute;
+
+}
+#exit button{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#Liste{
+    position:absolute;
+    background-color: #76bc3f;
+    width: 70%;
+    height: 80%;
+    margin-top: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#Liste .Produit{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 100%;
+    text-align: center;
+    height: 25%;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: black 2px solid;
+    text-align: center;
+}
+
+#Liste .Produit >*{
+    height: fit-content;
+}
+
+#Liste .Produit img{
+    order: 1;
+    height: 90%;
+}
+
+#Liste .Produit .qtt{
+    order: 2;
+}
+
+#Liste .Produit .prix{
+    order: 3;
+}

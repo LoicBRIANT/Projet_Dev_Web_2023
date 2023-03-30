@@ -1,14 +1,13 @@
 <head>        
-        <meta charset="utf-8" />        
-        <meta name="viewport" content="width=device-width"/>         
-        <title>Login
-        </title> 
-        <link rel="stylesheet" type="text/css" href="css/style_login.css">
-    </head>   
-     <br>
-
+    <meta charset="utf-8" />        
+    <meta name="viewport" content="width=device-width"/>         
+    <title>Login
+    </title> 
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>   
+<div id="login">
     <div class="rectangle">
-      
+        
     <form id="form">
 
 
@@ -37,7 +36,7 @@
                 </div>
             </div>
             <br>
-             <div class="input-container-form">
+                <div class="input-container-form">
                 <div class="compte">
                 <button type="text" class="Créer compte">Créer compte</button>
                 </div>
@@ -49,6 +48,6 @@
             </div>
     </form>
     </div>
-
+</div>
 
     

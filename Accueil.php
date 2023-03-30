@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="css/Accueil.css">
+    <title>Zaun|Magasin spécialisé dans la vente de champignon</title>
 </head>
 <div id="Accueil">
     <div class="Produit">

@@ -6,12 +6,6 @@ button {
     font-weight: bold; 
   }
 
-  p {
-    position: absolute; 
-    left: 27cm; 
-    margin: 0;
-  }
-
   .pani {
     position: absolute;
     top: 7.5cm;
@@ -34,4 +28,13 @@ button {
     position: absolute;
     top: 9cm;
     right: 25.5cm;
+  }
+
+
+  #acheteur{
+    width: 85%;
+    background-color: #8f8778;
+    min-height: 100vh;
+    margin-left: 15%;
+    position: relative;
   }

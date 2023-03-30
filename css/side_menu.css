@@ -1,11 +1,11 @@
 #side_menu{
     background-color: #574d46;
     width: 15%;
-    position: fixed;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position:absolute;
 }
 
 #champinion{
