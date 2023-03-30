@@ -1,4 +1,5 @@
 header{
+    position: fixed;
     height: 100px;
     background-color: #312e29;
     display: flex;
