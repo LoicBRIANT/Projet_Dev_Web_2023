@@ -5,17 +5,18 @@ body {
   }
 
 .title {
-    text-align: center;
     font-size: 48px;
+    left: 16cm;
   }
 
 .carre {
     position: absolute; 
-    left: 20cm; 
-    width: 150px; 
-    height: 150px; 
+    left: 12cm; 
+    width: 225px; 
+    height: 225px; 
     background: rgb(112,180,116);
     border: 2px solid rgb(129, 63, 15);
+    top: 6cm;
 }
 
 
@@ -25,40 +26,50 @@ button {
     color: black; 
     padding: 10px 20px; 
     font-weight: bold; 
+    height: 1.5cm;
+    width:229px
   }
 
+  
+.Completer_des_informations {
+  font-size: 20px;
+}
+.style_butt{
+  font-size: 22px;
+}
   p {
     position: absolute; 
-    left: 27cm; 
+    left: 24cm; 
     margin: 0;
+    font-size: 38px;
   }
 
   .pani {
     position: absolute;
-    top: 6cm;
-    right: 27.5cm;
+    top: 13cm;
+    left: 12cm;
   }
 
   .s_abon {
     position: absolute;
-    top: 7.5cm;
-    right: 27.25cm;
+    top: 15cm;
+    left: 12cm;
   }
 
   .comm {
     position: absolute;
-    top: 9cm;
-    right: 27.25cm;
+    top: 17cm;
+    left: 12cm;
   }
 
   .complet {
     position: absolute;
-    top: 7.5cm;
-    right: 17cm;
+    top: 13cm;
+    left: 24cm;
   }
 
   .vente {
     position: absolute;
-    top: 10.5cm;
-    right: 26.75cm;
+    top: 19cm;
+    left: 12cm;
   }
