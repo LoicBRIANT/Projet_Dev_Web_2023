@@ -4,12 +4,17 @@ body{
 }
 .menu_vente{
   margin-left: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 .listepr{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  width: 75%;
 }
 ul{
   list-style: none;
@@ -25,4 +30,11 @@ ul{
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.boutton{
+  border: 3px solid #a16510;
+  background-color: #9d7d2b;
+  height: 60px;
+  width: 100px;
 }
