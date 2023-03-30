@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="produit.css">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/index.css">
     <title>Produit</title>
 </head>
 <body>
@@ -30,7 +29,7 @@
     <div></div>
     <div class="product">
         <div class="product-image" style="justify-content: center;">
-          <img src="../img/lilith.jpg" alt="product image">
+          <img class="image" src="../img/figurine.jpg" alt="product image">
           <div class="product-details" >
             <h1>Nom du produit</h1>
             <p>Description du produit.</p>
@@ -38,7 +37,7 @@
             <form class="formulaire"action="">
               <label for="quantity">Quantité :</label>
               <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
-              <button type="submit">Ajouter au panier</button>
+              <button class = "boutton-panier" type="submit">Ajouter au panier</button>
             </form>
   
           </div>
@@ -47,9 +46,21 @@
         <div class="autre">
             <div class="info_supplementaire">
                 <ul class="liste_info">
-                    <li> Produit 1</li>
-                    <li> Produit 2</li>
-                    <li> Produit 3</li>
+                    <li id="li_ps"> 
+                      <img id="image_ps" src="" alt="">
+                      <h1 id="titre_ps"> nom </h1>
+                      <p id="description_ps"> description </p>
+                    </li>
+                    <li id="li_ps"> 
+                      <img id="image_ps" src="" alt="">
+                      <h1 id="titre_ps"> nom </h1>
+                      <p id="description_ps"> description </p>
+                    </li>
+                    <li id="li_ps"> 
+                      <img id="image_ps" src="" alt="">
+                      <h1 id="titre_ps"> nom </h1>
+                      <p id="description_ps"> description </p>
+                    </li>
                 </ul>
             </div>
             <div class="produit_similaire"></div>

@@ -1,5 +1,5 @@
 body{
-  background-color:rgb(144,132,124) ;
+  background-color: rgb(144,132,124) ;
 }
 img{
   max-width: 480px;
@@ -95,9 +95,25 @@ img{
   height: 60px;
   width: 180px;
 }
-  li{
+li{
+    height: 100%;
+    width: 100%;
     margin: 10%;
     position: relative;
     border: black;
     border-style: solid;
+  }
+
+  .image{
+    box-shadow: 3%;
+    border-style: solid ;
+    border-radius: 1%;
+    opacity: 70%;
+  }
+
+  .boutton-panier{
+    border: 3px solid #a16510;
+    background-color: #9d7d2b;
+    height: 60px;
+    width: 100px;
   }
