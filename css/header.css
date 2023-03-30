@@ -4,6 +4,8 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
+    top: 0cm;
+    width: 100%;
 }
 
 header >*{
