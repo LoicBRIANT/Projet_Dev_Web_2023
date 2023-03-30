@@ -10,24 +10,39 @@
     <link rel="stylesheet" href="../css/footer.css">
     <title>Produit</title>
 </head>
+<header>
+  <img id="icon_zaun" src="../img/zaun_crest_icon.png" alt="zaun_icon">
+  <div id="titre_menu">
+      ZAUN
+  </div>
+  <div class="search-container">
+  <form action="index.php">
+    <input type="text" placeholder="Search.." name="search"><div id="search"><button type="submit"><img src="../img/icons8-search-50.png" class="search_button" alt="search_icon"></button></div>
+  </form>
+  </div>
+  <div id="compte">
+    <p>Compte</p>
+  </div>
+  <div id="shop">
+    <img src="../img/shopping-cart.png" alt="shopping_cart_icon" id="shop_button">
+  </div>
+</header>
+<div id="side_menu">
+  <div id="champinion" class="categorie">
+      <button type="submit">champignon</button>
+  </div>
+  <div id="Figurine" class="categorie">
+      <button type="submit">Figurine</button>
+  </div>
+  <div id="Jeux" class="categorie">
+      <button type="submit">Jeux</button>
+  </div>
+  <div id="shimmer" class="categorie">
+      <button type="submit">shimmer</button>
+  </div>
+</div>
 <body>
-  <header>
-    <img id="icon_zaun" src="../img/zaun_crest_icon.png" alt="zaun_icon">
-    <div id="titre_menu">
-        ZAUN
-    </div>
-    <div class="search-container">
-    <form action="index.php">
-      <input type="text" placeholder="Search.." name="search"><div id="search"><button type="submit"><img src="../img/icons8-search-50.png" class="search_button" alt="search_icon"></button></div>
-    </form>
-    </div>
-    <div id="compte">
-      <p>Compte</p>
-    </div>
-    <div id="shop">
-      <img src="../img/shopping-cart.png" alt="shopping_cart_icon" id="shop_button">
-    </div>
-  </header>
+
   <div id="side_menu">
     <div id="champinion" class="categorie">
         <button type="submit">champignon</button>
@@ -50,8 +65,8 @@
             <p>Description du produit.</p>
             <p>Prix : $10</p>
             <form class="formulaire"action="">
-              <label for="quantity">Quantité :</label>
-              <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+              <label class = "label"for="quantity">Quantité :</label>
+              <input class="inpute" type="number" id="quantity" name="quantity" min="1" max="10" value="1">
               <button class = "boutton-panier" type="submit">Ajouter au panier</button>
             </form>
   

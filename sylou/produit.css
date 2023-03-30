@@ -1,7 +1,8 @@
 body{
   background-color: rgb(144,132,124) ;
+  margin: 0%;
 }
-img{
+.image{
   max-width: 480px;
   max-height: 360px;
 }
@@ -11,7 +12,7 @@ img{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
+    margin: 120px;
     width: 75%;
     margin-left: 25%;
   }
@@ -60,12 +61,12 @@ img{
     margin-top: 20px;
   }
   
-  label {
+  .label {
     margin-right: 10px;
     font-size: 16px;
   }
   
-  input {
+  .inpute{
     width: 50px;
     font-size: 16px;
     padding: 5px;
@@ -74,7 +75,7 @@ img{
     text-align: center;
   }
   
-  button {
+  .boutton-panier {
     background-color: #337ab7;
     border: none;
     color: #fff;
@@ -89,7 +90,7 @@ img{
     flex-direction: column;
     flex: 1;
   }
-  ul{
+  .liste_info{
     list-style: none;
     padding: 0%;
 }
