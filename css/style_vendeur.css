@@ -34,6 +34,12 @@ button {
 .Completer_des_informations {
   font-size: 20px;
 }
+
+button.Completer_des_informations {
+  height: 5cm;
+  width:600px;
+}
+
 .style_butt{
   font-size: 22px;
 }
