@@ -14,7 +14,6 @@
     </head> 
 
         <br>
-
     <body>
         <header>
             <img id="icon_zaun" src="img/zaun_crest_icon.png" alt="zaun_icon">
@@ -47,11 +46,20 @@
                 <button type="submit">shimmer</button>
             </div>
         </div>
-
-        <div class="title">Journal des activités</div>
+        <br>
+        <div class="element_prec">
+            <h1>Journal des activités</h1>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <br>
         <div class="ligne"></div>
         <pre> Action            heure           utilisateur concerné</pre> 
+        <br>
+        <div class="ligne"></div>
+        <pre> Action            heure           utilisateur concerné</pre>
         <br>
         <div class="ligne"></div>
         <pre> Action            heure           utilisateur concerné</pre>
@@ -83,3 +91,4 @@
         </footer>
     </body>
 </html>
+
