@@ -7,11 +7,12 @@ footer{
     color: #a16510;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     justify-content: center;
     gap: 80px;
+    left: 0cm;
 }
 
 footer a{
