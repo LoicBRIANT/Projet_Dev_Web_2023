@@ -6,6 +6,7 @@ body {
 
 .title {
     text-align: center;
+    font-size: 34px;
   }
 
   .input {
@@ -18,13 +19,13 @@ body {
 	padding: 4px 20px 0;
 	width: 100%;
 	border: 2px solid rgb(150, 103, 16);
-    background: rgb(112,180,116);
+  background: rgb(112,180,116);
 }
 .rectangle {
     background-color: rgb(160, 124, 44);
     padding: 20px;
-    width: 600px;
-    height: 425px;
+    width: 700px;
+    height: 500px;
     margin: auto;
     position: absolute;
     top: 0;
@@ -41,6 +42,8 @@ body {
     color: black; 
     padding: 10px 20px; 
     font-weight: bold; 
+    height: 1.5cm;
+    width: 5cm;
   }
 
   .input-container-form4 {
@@ -49,18 +52,19 @@ body {
   
   .retour {
     position: absolute;
-    top: 10cm;
+    top: 11cm;
     right: 1cm;
   }
 
   .connec {
     position: absolute;
-    top: 8cm;
-    right: 7cm;
+    top: 9cm;
+    right: 7.5cm;
   }
 
-  .compte {
+  .compt {
     position: absolute;
-    top: 5cm;
-    right: 6.5cm;
+    top: 11cm;
+    left: 1cm;
   }
+  
