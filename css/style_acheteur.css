@@ -1,59 +1,71 @@
 body {
-    background-color: rgb(144,132,124);
-    margin: 0 auto;
-    text-align: center;
-  }
+  background-color: rgb(144,132,124);
+  margin: 0 auto;
+  text-align: center;
+}
 
 .title {
-    text-align: center;
-    font-size: 48px;
-  }
+  font-size: 48px;
+  left: 16cm;
+}
 
 .carre {
-    position: absolute; 
-    left: 20cm; 
-    width: 150px; 
-    height: 150px; 
-    background: rgb(112,180,116);
-    border: 2px solid rgb(129, 63, 15);
+  position: absolute; 
+  left: 12cm; 
+  width: 225px; 
+  height: 225px; 
+  background: rgb(112,180,116);
+  border: 2px solid rgb(129, 63, 15);
+  top: 6cm;
 }
 
 
 button {
-    background-color: rgb(96,84,76);
-    border: 2px solid rgb(168, 104, 28);
-    color: black; 
-    padding: 10px 20px; 
-    font-weight: bold; 
-  }
+  background-color: rgb(96,84,76);
+  border: 2px solid rgb(168, 104, 28);
+  color: black; 
+  padding: 10px 20px; 
+  font-weight: bold; 
+  height: 1.5cm;
+  width:229px
+}
 
-  p {
-    position: absolute; 
-    left: 27cm; 
-    margin: 0;
-  }
 
-  .pani {
-    position: absolute;
-    top: 6cm;
-    right: 27.5cm;
-  }
+.Completer_des_informations {
+font-size: 20px;
+}
+.style_butt{
+font-size: 22px;
+}
+p {
+  position: absolute; 
+  left: 24cm; 
+  margin: 0;
+  font-size: 38px;
+}
 
-  .s_abon {
-    position: absolute;
-    top: 7.5cm;
-    right: 27.25cm;
-  }
+.pani {
+  position: absolute;
+  top: 13cm;
+  left: 12cm;
+}
 
-  .comm {
-    position: absolute;
-    top: 9cm;
-    right: 27.25cm;
-  }
+.s_abon {
+  position: absolute;
+  top: 15cm;
+  left: 12cm;
+}
 
-  .complet {
-    position: absolute;
-    top: 7.5cm;
-    right: 17cm;
-  }
+.comm {
+  position: absolute;
+  top: 17cm;
+  left: 12cm;
+}
+
+.complet {
+  position: absolute;
+  top: 13cm;
+  left: 24cm;
+}
+
 
