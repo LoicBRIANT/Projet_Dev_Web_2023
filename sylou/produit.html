@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="produit.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/side_menu.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <title>Produit</title>
 </head>
 <body>
@@ -26,8 +28,21 @@
       <img src="../img/shopping-cart.png" alt="shopping_cart_icon" id="shop_button">
     </div>
   </header>
-    <div></div>
-    <div class="product">
+  <div id="side_menu">
+    <div id="champinion" class="categorie">
+        <button type="submit">champignon</button>
+    </div>
+    <div id="Figurine" class="categorie">
+        <button type="submit">Figurine</button>
+    </div>
+    <div id="Jeux" class="categorie">
+        <button type="submit">Jeux</button>
+    </div>
+    <div id="shimmer" class="categorie">
+        <button type="submit">shimmer</button>
+    </div>
+  </div>
+  <div class="product">
         <div class="product-image" style="justify-content: center;">
           <img class="image" src="../img/figurine.jpg" alt="product image">
           <div class="product-details" >
@@ -44,6 +59,7 @@
         </div>
         
         <div class="autre">
+          <div class="produit_similaire"><p id="p_is">info suplementaire</p></div>
             <div class="info_supplementaire">
                 <ul class="liste_info">
                     <li id="li_ps"> 
@@ -63,10 +79,32 @@
                     </li>
                 </ul>
             </div>
-            <div class="produit_similaire"></div>
+            
         </div>
 
-      </div>
+  </div>
+  <footer>
+        <div id="div_1">
+            <a href="Info.php">
+            Info et contact
+            </a>
+        </div>
+        <div id="div_2">
+            <a href="Confidentialite.php">
+            Confidentialité
+            </a>
+        </div>
+        <div id="div_3">
+            <a href="Condition.php">
+            Conditions générales de vente
+            </a>
+        </div>
+        <div id="div_4">
+            <a href="Propos.php">
+            A propos
+            </a>
+        </div>
+  </footer>
 
 </body>
 </html>
