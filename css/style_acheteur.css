@@ -30,6 +30,10 @@ button {
   width:229px
 }
 
+button.Completer_des_informations {
+  height: 5cm;
+  width:600px;
+}
 
 .Completer_des_informations {
 font-size: 20px;
@@ -67,5 +71,3 @@ p {
   top: 13cm;
   left: 24cm;
 }
-
-
