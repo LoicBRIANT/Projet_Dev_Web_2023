@@ -2,18 +2,32 @@ body {
     background-color: rgb(144,132,124);
   }
 
-.title {
-    text-align: center;
-  }
+.element_prec {
+  position: absolute;
+    right: 19cm;
+}
+
+h1{
+  display:inline-block;
+  font-size: 38px;
+}
+
 
   pre {
     text-align: center;
+    font-size: 34px;
   }
 
   .ligne {
-    width: 13cm;
+    width: 33cm;
     height: 10px;
-    border-top: 1px solid black;
+    border-top: 3px solid black;
     position: absolute;
-    right: 19cm;
+    right: 8cm;
+  }
+
+  .compléter {
+    position: absolute;
+    top: 10cm;
+    right: 1cm;
   }
