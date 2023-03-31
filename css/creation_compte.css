@@ -1,0 +1,75 @@
+body {
+    background-color: rgb(144,132,124);
+    position: absolute;
+    top: 0;
+  }
+
+.title {
+    text-align: center;
+    font-size: 34px;
+  }
+
+  .input {
+	border: 0;
+	box-sizing: border-box;
+	color: #08971c;
+	font-size: 40px;
+	height: 140%;
+	outline: 0;
+	padding: 4px 20px 0;
+	width: 100%;
+	border: 2px solid rgb(150, 103, 16);
+  background: rgb(112,180,116);
+}
+.rectangle {
+    background-color: rgb(160, 124, 44);
+    padding: 20px;
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 5px solid rgb(129, 63, 15);
+  }
+
+
+  button {
+    background-color: rgb(96,84,76);
+    border: 2px solid rgb(168, 104, 28);
+    color: black; 
+    padding: 10px 20px; 
+    font-weight: bold; 
+    height: 1.5cm;
+    width: 5cm;
+  }
+
+  .input-container-form4 {
+    position: relative;
+  }
+  
+  .retour {
+    position: absolute;
+    top: 15cm;
+    right: 1cm;
+  }
+
+  .connec {
+    position: absolute;
+    top: 15cm;
+    right: 9cm;
+  }
+
+  .compt {
+    position: absolute;
+    top: 15cm;
+    left: 1cm;
+  }
+
+  ::placeholder {
+    font-size: 14px;
+    color: maroon;
+  }
+  
