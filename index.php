@@ -14,7 +14,6 @@
 <body>
     <?php include "header.php"; ?>
     <?php include "side_menu.php"; ?>
-
     <?php include "admin_menu.php"; ?>
     <?php include "footer.php"; ?>
 </body>
