@@ -1,3 +1,45 @@
+<?php
+
+// Vérification des identifiants
+$servername = "localhost";
+$email = "votre_adresse_e-mail";
+$password = "votre_mot_de_passe";
+$dbname = "Scriptsql_BDD";
+
+// Connexion à la base de données
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérification de la connexion
+if ($conn->connect_error) {
+    die("La connexion a échoué : " . $conn->connect_error);
+}
+
+// Récupération des identifiants entrés par l'utilisateur
+$email = $_POST['email'];
+$mot_de_passe = $_POST['mot_de_passe'];
+
+// Requête pour vérifier si l'utilisateur existe dans la base de données
+$sql = "SELECT * FROM compte WHERE email = '$email' AND mot_de_passe = '$mot_de_passe'";
+$result = $conn->query($sql);
+
+// Vérification si l'utilisateur existe
+if ($result->num_rows == 1) {
+    // Redirection vers la page d'accueil
+    header('Location: index.php');
+    exit();
+} else {
+    // Redirection vers la page d'erreur 404
+    header('Location: erreur404.php');
+    exit();
+}
+
+// Fermeture de la connexion à la base de données
+$conn->close();
+?>
+
+?>
+
+
 <?php?>
 
 <!DOCTYPE html>
@@ -43,58 +85,22 @@
                 <br>
                 <div class="input-container-form">
                     <div class="compt">
-                        <button type="button" class="Creercompte" onclick="window.location.href='creer_compte.php'">Créer compte</button>
-                    </div>
+                            <button type="button" class="creer_compte">
+                                <a href=creer_compte.php>Aller à page Créer compte</a>
+                            </button>
+                        </div>
                 </div>
                 <div class="input-container-form">  
                     <div class ="retour">
-                        <button type="button" class="Retourverslaccueil" onclick="window.location.href='index.php'">Retour vers l'accueil</button>
+                        <button type="button" class="Retour vers l'accueil">
+                                <a href=index.php>Retour vers l'accueil</a>
+                            </button>
                     </div>
                 </div>
             </form>
         </div>
 
         <?php include 'footer.php'; ?>
-<?php
-
-// Vérification des identifiants
-$servername = "localhost";
-$email = "votre_adresse_e-mail";
-$password = "votre_mot_de_passe";
-$dbname = "Scriptsql_BDD";
-
-// Connexion à la base de données
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("La connexion a échoué : " . $conn->connect_error);
-}
-
-// Récupération des identifiants entrés par l'utilisateur
-$email = $_POST['email'];
-$mot_de_passe = $_POST['mot_de_passe'];
-
-// Requête pour vérifier si l'utilisateur existe dans la base de données
-$sql = "SELECT * FROM compte WHERE email = '$email' AND mot_de_passe = '$mot_de_passe'";
-$result = $conn->query($sql);
-
-// Vérification si l'utilisateur existe
-if ($result->num_rows == 1) {
-    // Redirection vers la page d'accueil
-    header('Location: index.php');
-    exit();
-} else {
-    // Redirection vers la page d'erreur 404
-    header('Location: erreur404.php');
-    exit();
-}
-
-// Fermeture de la connexion à la base de données
-$conn->close();
-?>
-
-?>
 </body>
 </html>
 
