@@ -1,4 +1,48 @@
-<?php?>
+<?php
+// Vérifier si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupérer les valeurs du formulaire
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    // Connexion à la base de données
+    $servername = "localhost";
+    $username = "votre_nom_d_utilisateur";
+    $password_db = "votre_mot_de_passe";
+    $dbname = "votre_nom_de_base_de_donnees";
+
+    // Créer une connexion
+    $conn = mysqli_connect($servername, $username, $password_db, $dbname);
+
+    // Vérifier si la connexion a réussi
+    if (!$conn) {
+        die("La connexion à la base de données a échoué: " . mysqli_connect_error());
+    }
+
+    // Échapper les caractères spéciaux pour éviter les injections SQL
+    $email = mysqli_real_escape_string($conn, $email);
+    $password = mysqli_real_escape_string($conn, $password);
+
+    // Requête SQL pour récupérer l'utilisateur correspondant à l'email et au mot de passe saisis
+    $sql = "SELECT * FROM utilisateurs WHERE email='$email' AND mot_de_passe='$password'";
+
+    // Exécuter la requête SQL
+    $result = mysqli_query($conn, $sql);
+
+    // Vérifier si l'utilisateur existe
+    if (mysqli_num_rows($result) == 1) {
+        // L'utilisateur est connecté avec succès, rediriger vers la page d'accueil
+        header("Location: index.php");
+        exit();
+    } else {
+        // L'utilisateur n'existe pas ou les informations de connexion sont incorrectes, afficher un message d'erreur
+        $error_message = "Email ou mot de passe incorrect.";
+    }
+
+    // Fermer la connexion à la base de données
+    mysqli_close($conn);
+}
+?>
 
 <!DOCTYPE html>
 <html>  
@@ -55,47 +99,7 @@
         </div>
 
         <?php include 'footer.php'; ?>
-
-        <?php
-
-// Vérification des identifiants
-$servername = "localhost";
-$email = "votre_adresse_e-mail";
-$password = "votre_mot_de_passe";
-$dbname = "Scriptsql_BDD";
-
-// Connexion à la base de données
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("La connexion a échoué : " . $conn->connect_error);
-}
-
-// Récupération des identifiants entrés par l'utilisateur
-$email = $_POST['email'];
-$mot_de_passe = $_POST['mot_de_passe'];
-
-// Requête pour vérifier si l'utilisateur existe dans la base de données
-$sql = "SELECT * FROM compte WHERE email = '$email' AND mot_de_passe = '$mot_de_passe'";
-$result = $conn->query($sql);
-
-// Vérification si l'utilisateur existe
-if ($result->num_rows == 1) {
-    // Redirection vers la page d'accueil
-    header('Location: index.php');
-    exit();
-} else {
-    // Redirection vers la page d'erreur 404
-    header('Location: erreur404.php');
-    exit();
-}
-
-// Fermeture de la connexion à la base de données
-$conn->close();
-?>
-
-</body>
+    </body>
 </html>
 
 
