@@ -1,5 +1,7 @@
 <?php
 
+session_start(); // démarrer la session
+
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -10,12 +12,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $identifiant = $_POST['identifiant'];
     $mot_de_passe = $_POST['mot_de_passe'];
 
+// Stocker les données dans la session
+    $_SESSION['prenom'] = $prenom;
+    $_SESSION['nom'] = $nom;
+    $_SESSION['email'] = $email;
+    $_SESSION['identifiant'] = $identifiant;
+    $_SESSION['mot_de_passe'] = $mot_de_passe;
+
     // Connexion à la base de données
-    $connexion = mysqli_connect('localhost', 'utilisateur', 'mot_de_passe', 'Scriptsql_BDD');
+    $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
 
     // Vérifier si la connexion a réussi
     if (!$connexion) {
         die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
+    }else{
+        echo "trop bien";
     }
 
     // Échapper les caractères spéciaux dans les données du formulaire pour éviter les injections SQL
@@ -37,6 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Fermer la connexion
     mysqli_close($connexion);
+
+// fermer la session 
+session_unset(); // Détruit toutes les variables de session
+session_destroy();
+    // Redirection vers la page de connexion
+    header("Location: login.php");
+    exit; // Assure que le script s'arrête après la redirection
 }
 
 ?>
@@ -136,3 +154,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php include('footer.php'); ?>
     </body>
 </html>
+
