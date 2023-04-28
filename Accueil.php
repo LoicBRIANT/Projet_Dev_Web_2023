@@ -24,7 +24,7 @@
         
         $result = $conn->query("SELECT * FROM Type_Produit;");
         foreach ($result as $value) {
-            echo '<a href="produit.phpcat='.$value["nom"].'" class="Produit"><img src="img/'.$value["nom"].'.webp" alt="'.$value["nom"].'"><div class="nom_produit">'.$value["nom"].'</div><div class="prix_produit">'.$value["prix"].'€</div></a>';
+            echo '<a href="produit.php?cat='.$value["nom"].'" class="Produit"><img src="img/'.$value["nom"].'.webp" alt="'.$value["nom"].'"><div class="nom_produit">'.$value["nom"].'</div><div class="prix_produit">'.$value["prix"].'€</div></a>';
             }
         $conn = null;
     ?>

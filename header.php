@@ -23,7 +23,7 @@
             echo("<a href='deconnexion.php' id='bouton'>Déconnexion</a>");
         }
       ?>
-      <a href="shop.php" id="shop">
+      <a href="Panier.php" id="shop">
         <img src="img/shopping-cart.png" alt="shopping_cart_icon" id="shop_button">
       </a>
     </div>

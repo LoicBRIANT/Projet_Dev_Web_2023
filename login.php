@@ -5,6 +5,9 @@
     </title> 
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>   
+
+<?php include "header.php"; ?>
+<?php include "side_menu.php"; ?>
 <div id="login">
     <div class="rectangle">
         
@@ -48,6 +51,8 @@
             </div>
     </form>
     </div>
+
 </div>
 
+<?php include "footer.php"; ?>
     
