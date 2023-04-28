@@ -64,15 +64,18 @@ if (isset($_POST['submit'])) {
         <meta name="viewport" content="width=device-width"/>         
         <title>Login
         </title> 
-        <link rel="stylesheet" type="text/css" href="css/login.css">
-    </head>  
+        <link rel="stylesheet" type="text/css" href="css/style_login.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/side_menu.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
     <body>
         <?php include 'header.php'; ?>
         <?php include 'side_menu.php'; ?>
         
         <div class="rectangle">
         
-            <form id="form">
+            <form id="form" method="POST" action="login.php">
         
         
                 <div class="title">Login</div>
@@ -96,7 +99,7 @@ if (isset($_POST['submit'])) {
                 <br><br>
                     <div class="input-container-form">
                         <div class="connec">
-                            <button type="submit" class="Seconnecter">Se connecter</button>
+                            <input type="submit" class="Seconnecter" name ="submit" value ="Se connecter">
                         </div>
                     </div>
                     <br>
@@ -116,31 +119,6 @@ if (isset($_POST['submit'])) {
                     </div>
             </form>
         </div>
-        <footer>
-            <div id="div_1">
-                <a href="Info.php">
-                Info et contact
-                </a>
-            </div>
-            <div id="div_2">
-                <a href="Confidentialite.php">
-                Confidentialité
-                </a>
-            </div>
-            <div id="div_3">
-                <a href="Condition.php">
-                Conditions générales de vente
-                </a>
-            </div>
-            <div id="div_4">
-                <a href="Propos.php">
-                A propos
-                </a>
-            </div>
-        </footer>
+        <?php include('footer.php'); ?>
     </body>
 </html>
-
-
-<?php include "footer.php"; ?>
-    
