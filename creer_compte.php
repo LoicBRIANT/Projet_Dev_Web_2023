@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< Updated upstream
 session_start(); // démarrer la session
 
+=======
+>>>>>>> Stashed changes
 // Vérifier si le formulaire a été soumis
 if (isset($_POST['submit'])) {
 
@@ -162,5 +165,8 @@ if (isset($_POST['submit'])) {
 </html>
 
     
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
