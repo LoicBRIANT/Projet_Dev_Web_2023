@@ -11,8 +11,8 @@ footer{
     font-size: 22px;
     left: 0px;
     width: 100%;
-    position: relative;
-    bottom: 0px;
+    position: absolute;
+    z-index: 2;
 }
 
 footer a{

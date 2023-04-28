@@ -4,12 +4,15 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    z-index:1;
+
 }
 
 header >*{
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 #icon_zaun {
@@ -18,7 +21,16 @@ header >*{
     margin: 0px;
     margin-left: 20px;
     order: 1;
+
+    user-select: none;
 }
+
+#icon_zaun img{
+    height: 80px;
+    width: auto;
+    margin: 0px;
+}
+
 #titre_menu {
     order: 2;
     font-size: 40px;
@@ -30,6 +42,9 @@ header >*{
     padding-right: 15px;
     padding-left: 15px;
     margin-left: 0px;
+
+    user-select: none;
+    text-decoration: none;
 }
 .search-container {
     order: 3;
@@ -56,7 +71,7 @@ header >*{
 
 .search-container input[type=text]:focus{
     
-    outline: 2px solid #83510c;
+    outline: 2px solid #a16510;
 
 }
 
@@ -66,10 +81,15 @@ header >*{
     padding: 0px;
     background-color: #9d7d2b;
     border: 0px;
+
+}
+
+.search-container button:hover{
+    cursor:pointer;
 }
 
 .search-container input[type=text]:focus~div{
-    outline: 2px solid #83510c;
+    outline: 2px solid #a16510;
 
 }
 
@@ -84,6 +104,10 @@ header >*{
     text-align: center;
     padding: 0px;
 }
+
+.search-container #search img:hover{
+    filter: invert(25%) sepia(81%) saturate(7064%) hue-rotate(117deg) brightness(97%) contrast(104%);
+}
 .search-container form{
     width: 100%;
     height: 100%;
@@ -93,33 +117,46 @@ header >*{
     width :50px;
 }
 
-#compte{
+#button_bar{
     order: 4;
-    border: 3px solid #a16510;
-    background-color: #9d7d2b;
-    height: 60px;
-    width: 100px;
-    text-align: center;
-    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+    margin: 0px;
+    justify-content: space-evenly;
+
 }
 
-#compte p{
-    margin: 0px;
+#bouton{
+    border: 3px solid #a16510;
+    background-color: #9d7d2b;
+    height: 26px;
+    min-width: 100px;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration: none;
     padding-top: 17px;
     padding-bottom: 17px;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    user-select: none;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
+
 #shop{
-    order: 5;
     border: 3px solid #a16510;
     background-color: #9d7d2b;
     height: 60px;
     width: 60px;
     border-radius: 3px;
     text-align: center;
+
+    user-select: none;
 }
 
 #shop img{
