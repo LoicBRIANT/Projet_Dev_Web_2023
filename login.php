@@ -62,10 +62,12 @@ if (isset($_POST['submit'])) {
     <head>        
         <meta charset="utf-8" />        
         <meta name="viewport" content="width=device-width"/>         
-        <title>Login
-        </title> 
-        <link rel="stylesheet" type="text/css" href="css/login.css">
-    </head>  
+        <title>Login</title> 
+        <link rel="stylesheet" type="text/css" href="css/style_login.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/side_menu.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
     <body>
         <?php include 'header.php'; ?>
         <?php include 'side_menu.php'; ?>
@@ -77,70 +79,31 @@ if (isset($_POST['submit'])) {
         
                 <div class="title">Login</div>
                 <br>
-                <div class="input-container ic1">
-                    <label for="Adresse e-mail" class="placeholder">Adresse e-mail : </label>
-                    <br>
-                    <br>
-                    <input id="Adresse e-mail" class="input" type="text" placeholder=" " />
-                    <div class="cut"></div>
-                </div>
                 <br>
-                <div class="input-container ic1">
-                        <label for="Mot de passe" class="placeholder">Mot de passe :</label>
-                        <br>
-                        <br>
-                        <input id="Mot de passe" class="input" type="text" placeholder=" " />
-                        <div class="cut"></div>
-                </div>
-        
-                <br><br>
-                    <div class="input-container-form">
-                        <div class="connec">
-                            <button type="submit" class="Seconnecter">Se connecter</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="input-container-form">
-                        <div class="compt">
-                            <button type="button" class="Créer compte">
-                                <a href=creation_compte.html>Aller vers page création de compte</a>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="input-container-form">  
-                        <div class ="retour">
-                            <button type="button" class="Retour vers l'accueil">
-                                <a href=Accueil.html>Retour vers l'accueil</a>
-                            </button>
-                        </div>
-                    </div>
-            </form>
+                <input id="Mot de passe" class="input" type="text" placeholder=" " />
+                <div class="cut"></div>
         </div>
-        <footer>
-            <div id="div_1">
-                <a href="Info.php">
-                Info et contact
-                </a>
-            </div>
-            <div id="div_2">
-                <a href="Confidentialite.php">
-                Confidentialité
-                </a>
-            </div>
-            <div id="div_3">
-                <a href="Condition.php">
-                Conditions générales de vente
-                </a>
-            </div>
-            <div id="div_4">
-                <a href="Propos.php">
-                A propos
-                </a>
-            </div>
-        </footer>
-    </body>
-</html>
 
+        <br><br>
+            <div class="input-container-form">
+                <div class="connec">
+                <button type="text" class="Seconnecter">Se connecter</button>
+                </div>
+            </div>
+            <br>
+                <div class="input-container-form">
+                <div class="compte">
+                <button type="text" class="Créer compte">Créer compte</button>
+                </div>
+            </div>
+            <div class="input-container-form">  
+                <div class ="retour">
+                <button type="text" class="Retour vers l'accueil">Retour vers l'accueil</button>
+                </div>
+            </div>
+    </form>
+    </div>
+</div>
 
 <?php include "footer.php"; ?>
     
