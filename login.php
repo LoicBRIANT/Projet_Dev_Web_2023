@@ -1,57 +1,69 @@
-<head>        
-    <meta charset="utf-8" />        
-    <meta name="viewport" content="width=device-width"/>         
-    <title>Login
-    </title> 
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-</head>   
-<div id="login">
-    <div class="rectangle">
-        
-    <form id="form">
+<?php
 
+session_start(); // démarrer la session
 
-    // Créer une connexion
-    $conn = mysqli_connect($servername, $username, $password_db, $dbname);
+// Vérifier si le formulaire a été soumis
+if (isset($_POST['submit'])) {
+
+    // Récupérer les données du formulaire
+    $email = $_POST['email'];
+    $mot_de_passe = $_POST['mot_de_passe'];
+
+// Stocker les données dans la session
+    $_SESSION['email'] = $email;
+    $_SESSION['mot_de_passe'] = $mot_de_passe;
+
+    // Connexion à la base de données
+    $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
 
     // Vérifier si la connexion a réussi
-    if (!$conn) {
-        die("La connexion à la base de données a échoué: " . mysqli_connect_error());
+    if (!$connexion) {
+        die('Erreur de connexion au compte : ' . mysqli_connect_error());
+    }else{
+        echo "connexion au compte";
     }
 
-    // Échapper les caractères spéciaux pour éviter les injections SQL
-    $email = mysqli_real_escape_string($conn, $email);
-    $password = mysqli_real_escape_string($conn, $password);
+    if (!(mysqli_query($connexion,"USE siteECommerce;"))) {
+        die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
+    }else{
+        echo "connexion a la bdd";
+    }
 
-    // Requête SQL pour récupérer l'utilisateur correspondant à l'email et au mot de passe saisis
-    $sql = "SELECT * FROM utilisateurs WHERE email='$email' AND mot_de_passe='$password'";
 
-    // Exécuter la requête SQL
-    $result = mysqli_query($conn, $sql);
+    // Échapper les caractères spéciaux dans les données du formulaire pour éviter les injections SQL
+    $email = mysqli_real_escape_string($connexion, $email);
+    $mot_de_passe = mysqli_real_escape_string($connexion, $mot_de_passe);
 
-    // Vérifier si l'utilisateur existe
-    if (mysqli_num_rows($result) == 1) {
-        // L'utilisateur est connecté avec succès, rediriger vers la page d'accueil
-        $_SESSION['ID'] = $user['id'];
-        $_SESSION['connecter'] = true;
-        header("Location: index.php");
-        exit();
+
+
+    // Préparer la requête d'insertion des données dans la table Compte
+    $requete = "SELECT * FROM Compte WHERE email = '$email' and motdePasse = '$mot_de_passe'";
+
+    // Exécuter la requête
+    if (mysqli_query($connexion, $requete)) {
+        echo '<div>Le compte a été créé avec succès.</div>';
     } else {
-        // L'utilisateur n'existe pas ou les informations de connexion sont incorrectes, afficher un message d'erreur
-        $error_message = "Email ou mot de passe incorrect.";
+        echo '<div>Erreur lors de la création du compte : ' . mysqli_error($connexion)."</div>";
     }
 
-    // Fermer la connexion à la base de données
-    mysqli_close($conn);
+    // Fermer la connexion
+    mysqli_close($connexion);
+
+
+    // Redirection vers la page de connexion
+    header("Location: .php");
+    exit; // Assure que le script s'arrête après la redirection
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>  
     <head>        
         <meta charset="utf-8" />        
         <meta name="viewport" content="width=device-width"/>         
-        <title>Login</title> 
+        <title>Login
+        </title> 
         <link rel="stylesheet" type="text/css" href="css/style_login.css">
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/side_menu.css">
@@ -60,35 +72,77 @@
     <body>
         <?php include 'header.php'; ?>
         <?php include 'side_menu.php'; ?>
-
+        
         <div class="rectangle">
+        
             <form id="form">
+        
+        
                 <div class="title">Login</div>
                 <br>
+                <div class="input-container ic1">
+                    <label for="Adresse e-mail" class="placeholder">Adresse e-mail : </label>
+                    <br>
+                    <br>
+                    <input id="Adresse e-mail" class="input" type="text" placeholder=" " />
+                    <div class="cut"></div>
+                </div>
                 <br>
-                <input id="Mot de passe" class="input" type="text" placeholder=" " />
-                <div class="cut"></div>
+                <div class="input-container ic1">
+                        <label for="Mot de passe" class="placeholder">Mot de passe :</label>
+                        <br>
+                        <br>
+                        <input id="Mot de passe" class="input" type="text" placeholder=" " />
+                        <div class="cut"></div>
+                </div>
+        
+                <br><br>
+                    <div class="input-container-form">
+                        <div class="connec">
+                            <button type="submit" class="Seconnecter">Se connecter</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-container-form">
+                        <div class="compt">
+                            <button type="button" class="Créer compte">
+                                <a href=creation_compte.html>Aller vers page création de compte</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-container-form">  
+                        <div class ="retour">
+                            <button type="button" class="Retour vers l'accueil">
+                                <a href=Accueil.html>Retour vers l'accueil</a>
+                            </button>
+                        </div>
+                    </div>
+            </form>
         </div>
+        <footer>
+            <div id="div_1">
+                <a href="Info.php">
+                Info et contact
+                </a>
+            </div>
+            <div id="div_2">
+                <a href="Confidentialite.php">
+                Confidentialité
+                </a>
+            </div>
+            <div id="div_3">
+                <a href="Condition.php">
+                Conditions générales de vente
+                </a>
+            </div>
+            <div id="div_4">
+                <a href="Propos.php">
+                A propos
+                </a>
+            </div>
+        </footer>
+    </body>
+</html>
 
-        <br><br>
-            <div class="input-container-form">
-                <div class="connec">
-                <button type="text" class="Seconnecter">Se connecter</button>
-                </div>
-            </div>
-            <br>
-                <div class="input-container-form">
-                <div class="compte">
-                <button type="text" class="Créer compte">Créer compte</button>
-                </div>
-            </div>
-            <div class="input-container-form">  
-                <div class ="retour">
-                <button type="text" class="Retour vers l'accueil">Retour vers l'accueil</button>
-                </div>
-            </div>
-    </form>
-    </div>
-</div>
 
     
