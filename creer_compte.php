@@ -1,8 +1,5 @@
 <?php
 
-session_start(); // démarrer la session
-
-
 // Vérifier si le formulaire a été soumis
 if (isset($_POST['submit'])) {
 
@@ -30,7 +27,7 @@ if (isset($_POST['submit'])) {
         echo "connexion au compte";
     }
 
-    if (!(mysqli_query($connexion,"USE siteECommerce;"))) {
+    if (!(mysqli_query($connexion,"USE myDB;"))) {
         die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
     }else{
         echo "connexion a la bdd";
