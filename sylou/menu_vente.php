@@ -1,3 +1,33 @@
+<?php
+session_start();
+// Connect to your database and retrieve the product data
+if ($_SESSION['connecter'] == true ){
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database_name";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare the SQL statement to retrieve the product data
+$stmt = $conn->prepare("SELECT * FROM Produits Where id_2 = ?");
+$stmt->bind_param("i", $_SESSION['ID']);
+$stmt->execute();
+
+// Retrieve the product data
+$result = $stmt->get_result();
+
+// Close the database connection
+$stmt->close();
+$conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,37 +75,17 @@
 </div>
 <div class="menu_vente">
   <ul class="listepr">
+  <?php while($product = $result->fetch_assoc()): ?>
     <li class="listeprli">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
-      <p>Nombre vendu</p>
-      <form action="retirer_vente.php?id=<?php echo $productId; ?>" method="post">
+    <h3><?php echo $product['nom']; ?></h3> 
+    <p><?php echo $product['Descriptif_Produit']?></p>
+    <span class="price"><?php echo $product['prix']?></span>
+    <form action="retirer_vente.php?id=<?php echo $product['ID']; ?>" method="post">
         <button> retirer de la vente</button>
       </form>
-      
-    </li>
-    <li class="listeprli">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
-      <p>Nombre vendu</p>
-    </li>
-    <li class="listeprli">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
-      <p>Nombre vendu</p>
-    </li>
-    <li class="listeprli">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
-    </li>
+  </li>
+  <?php endwhile; ?>
+ 
   </ul>
   <body>
     <button>
