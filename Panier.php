@@ -55,11 +55,7 @@ if(isset($_SERVER[''])) {
 <body>
     <?php include "header.php"; ?>
     <?php include "side_menu.php"; ?>
-<h1>
-  <?php
-    var_dump($result);
-  ?>
-</h1>
+
 <div class="menu_vente">
   <ul class="listepr">
   <?php
@@ -75,6 +71,9 @@ if(isset($_SERVER[''])) {
       <button class="boutton"> retirer du panier</button>
     </li>
   <?php endforeach; ?>
+
+  <?php else :?>
+    <p> panier vide</p>
   <?php endif; ?>
   </ul>
   <div class="menu_gauche">
