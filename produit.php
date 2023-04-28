@@ -61,14 +61,14 @@ if(isset($_SERVER['QUERY_STRING'])) {
               <input class="inpute" type="number" id="quantity" name="quantity" min="1" max="10" value="1">
               <button class = "boutton-panier" type="submit">Ajouter au panier</button>
             </form>
-  
+            <?php else: ?>
+            <p>No product found with that NAME.</p>
+          <?php endif; ?>
           </div>
         </div>       
   </div>
   
-  <?php else: ?>
-    <p>No product found with that NAME.</p>
-  <?php endif; ?>
+
 
   <?php include "footer.php"; ?>
 </body>

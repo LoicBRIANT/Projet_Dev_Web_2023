@@ -53,15 +53,22 @@ if(isset($_SERVER[''])) {
 <body>
     <?php include "header.php"; ?>
     <?php include "side_menu.php"; ?>
-  
+<h1>
+  <?php
+    var_dump($result);
+  ?>
+</h1>
 <div class="menu_vente">
   <ul class="listepr">
-  <?php foreach ($product as $row): ?>
+  <?php
+    if (isset($product))
+  ?>
+  <?php foreach ($result as $row): ?>
     <li class="listeprli">
       <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3><?php echo $product['nom']?></h3>
-      <p><?php echo $product['description']?></p>
-      <span class="price"><?php echo $product['description']?></span>
+      <h3><?php echo $row['nom']?></h3>
+      <p><?php echo $row['description']?></p>
+      <span class="price"><?php echo $row['description']?></span>
       
       <button class="boutton"> retirer du panier</button>
     </li>
