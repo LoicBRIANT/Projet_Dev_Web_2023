@@ -18,7 +18,9 @@ if(isset($_SERVER[''])) {
     }
     
     // Prepare the SQL statement to retrieve the product data
-    $stmt = $conn->prepare("SELECT * FROM Etre_Dans_Panier WHERE idCompte = ?");
+    $stmt = $conn->prepare("SELECT column_name(s)
+    FROM etre_dans_panier
+    INNER JOIN produit_categorie ON etre_dans_panier.idTypeProduit = produit_categorie.ID;");
     $stmt->bind_param("i", $productId);
     
     // Execute the query
@@ -61,7 +63,7 @@ if(isset($_SERVER[''])) {
 <div class="menu_vente">
   <ul class="listepr">
   <?php
-    if (isset($product))
+    if (isset($product)) : 
   ?>
   <?php foreach ($result as $row): ?>
     <li class="listeprli">
@@ -73,6 +75,7 @@ if(isset($_SERVER[''])) {
       <button class="boutton"> retirer du panier</button>
     </li>
   <?php endforeach; ?>
+  <?php endif; ?>
   </ul>
   <div class="menu_gauche">
     <button class="boutton"> retour</button>
