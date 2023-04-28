@@ -4,14 +4,15 @@ footer{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 80px;
     color: #a16510;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
-    position: absolute;
-    bottom: 0;
+    left: 0px;
     width: 100%;
-    justify-content: center;
-    gap: 80px;
+    position: absolute;
+    z-index: 2;
 }
 
 footer a{

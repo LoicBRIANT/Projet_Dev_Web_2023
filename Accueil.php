@@ -3,49 +3,29 @@
     <title>Zaun|Magasin spécialisé dans la vente de champignon</title>
 </head>
 <div id="Accueil">
-    <div class="Produit">
-        <img src="img/christmas_beth.png" alt="best waifu">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
-    <div class="Produit">
-        <img src="img/christmas_beth.png">
-        <div class="nom_produit">Christmas Beth</div>
-        <div class="Prix">200€</div>
-    </div>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        
+        $conn = new mysqli($servername,$username,$password);
+        
+        if($conn->connect_error){
+            die("Connection failed: <br>" .$conn->connect_error);
+        }
+        //echo "Connected successfully to account <br>";
+        
+        $sql = "USE myDB";
+        if($conn->query($sql) === TRUE){
+            //echo "connected successfully to database <br>";
+        }else{
+            echo "Error connecting to database: ". $conn->error;
+        }
+        
+        $result = $conn->query("SELECT * FROM Type_Produit;");
+        foreach ($result as $value) {
+            echo '<a href="produit.phpcat='.$value["nom"].'" class="Produit"><img src="img/'.$value["nom"].'.webp" alt="'.$value["nom"].'"><div class="nom_produit">'.$value["nom"].'</div><div class="prix_produit">'.$value["prix"].'€</div></a>';
+            }
+        $conn = null;
+    ?>
 </div>
