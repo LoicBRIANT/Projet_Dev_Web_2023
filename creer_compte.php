@@ -2,6 +2,7 @@
 
 session_start(); // démarrer la session
 
+
 // Vérifier si le formulaire a été soumis
 if (isset($_POST['submit'])) {
 
@@ -162,5 +163,3 @@ if (isset($_POST['submit'])) {
 </html>
 
     
-
-

@@ -1,16 +1,15 @@
-<?php
-session_start();
-// Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les valeurs du formulaire
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+<head>        
+    <meta charset="utf-8" />        
+    <meta name="viewport" content="width=device-width"/>         
+    <title>Login
+    </title> 
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>   
+<div id="login">
+    <div class="rectangle">
+        
+    <form id="form">
 
-    // Connexion à la base de données
-    $servername = "localhost";
-    $username = "votre_nom_d_utilisateur";
-    $password_db = "votre_mot_de_passe";
-    $dbname = "votre_nom_de_base_de_donnees";
 
     // Créer une connexion
     $conn = mysqli_connect($servername, $username, $password_db, $dbname);
@@ -66,43 +65,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form id="form">
                 <div class="title">Login</div>
                 <br>
-                <div class="input-container ic1">
-                    <label for="email" class="placeholder">Adresse e-mail : </label>
-                    <br>
-                    <br>
-                    <input id="email" class="input" type="text" placeholder=" " />
-                    <div class="cut"></div>
-                </div>
                 <br>
-                <div class="input-container ic1">
-                    <label for="password" class="placeholder">Mot de passe :</label>
-                    <br>
-                    <br>
-                    <input id="password" class="input" type="password" placeholder=" " />
-                    <div class="cut"></div>
-                </div>
-                <br><br>
-                <div class="input-container-form">
-                    <div class="connec">
-                        <button type="submit" class="Seconnecter">Se connecter</button>
-                    </div>
-                </div>
-                <br>
-                <div class="input-container-form">
-                    <div class="compt">
-                        <button type="button" class="Creercompte" onclick="window.location.href='creer_compte.php'">Créer compte</button>
-                    </div>
-                </div>
-                <div class="input-container-form">  
-                    <div class ="retour">
-                        <button type="button" class="Retourverslaccueil" onclick="window.location.href='index.php'">Retour vers l'accueil</button>
-                    </div>
-                </div>
-            </form>
+                <input id="Mot de passe" class="input" type="text" placeholder=" " />
+                <div class="cut"></div>
         </div>
 
-        <?php include 'footer.php'; ?>
-    </body>
-</html>
+        <br><br>
+            <div class="input-container-form">
+                <div class="connec">
+                <button type="text" class="Seconnecter">Se connecter</button>
+                </div>
+            </div>
+            <br>
+                <div class="input-container-form">
+                <div class="compte">
+                <button type="text" class="Créer compte">Créer compte</button>
+                </div>
+            </div>
+            <div class="input-container-form">  
+                <div class ="retour">
+                <button type="text" class="Retour vers l'accueil">Retour vers l'accueil</button>
+                </div>
+            </div>
+    </form>
+    </div>
+</div>
 
-
+    

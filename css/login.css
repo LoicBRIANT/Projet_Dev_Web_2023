@@ -4,6 +4,14 @@ body {
     background-color: rgb(144,132,124);
   }
 
+  #login{
+    width: 85%;
+    background-color: #8f8778;
+    min-height: 100vh;
+    margin-left: 15%;
+    position: relative;
+  }
+
 .title {
     text-align: center;
     font-size: 34px;

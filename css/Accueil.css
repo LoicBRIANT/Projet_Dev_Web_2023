@@ -1,26 +1,30 @@
 #Accueil{
-    width: 85%;
-    height: 100%;
+    min-height: 100%;
     background-color: #8f8778;
-    
-    margin-left: 15%;
+    width: 85%;
     flex-wrap: wrap;
     display: flex;
     padding-top: 40px;
     position: relative;
+
+    top: calc(0vh + 100px);
+    left: calc(0vh + 15%);
+    margin-bottom: 100px;
     
 }
 
 #Accueil .Produit{
     width: 30%;
     text-align: center;
-    height: 40%;
+    min-height: 40%;
     margin-bottom: 40px;
     margin-left:2.5%;
     background-color: #6b655a;
     border-radius: 15px;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
 }
 
 #Accueil .Produit img{
@@ -29,4 +33,14 @@
     height: 80%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+}
+
+#Accueil .Produit .nom_produit{
+    height: 7,5%;
+    padding-top: 3%;
+}
+
+#Accueil .Produit .prix_produit{
+    height: 7,5%;
+    padding-top: 3%;
 }
