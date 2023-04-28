@@ -1,6 +1,7 @@
 body{
   background-color: rgb(144,132,124) ;
   margin: 0%;
+  z-index: -1;
 }
 .image{
   max-width: 480px;

@@ -3,10 +3,10 @@ body{
     background-color:rgb(144,132,124) ;
 }
 .page{
+    margin-left: 15% ;
     text-align: center ;
     display: grid;
     width: 100%;
-    height: 100vh;
     background-color:rgb(144,132,124) ;
 }
 .photo_desc{
@@ -45,5 +45,7 @@ ul{
     grid-row: inherit;
     padding: 10%;
     background-color: aquamarine;
+    
+    border: 1px solid #ccc;
 }
 

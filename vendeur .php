@@ -12,37 +12,8 @@
     </head>  
 
     <body>
-      <header>
-         <img id="icon_zaun" src="img/zaun_crest_icon.png" alt="zaun_icon">
-         <div id="titre_menu">
-             ZAUN
-         </div>
-         <div class="search-container">
-         <form action="index.php">
-             <input type="text" placeholder="Search.." name="search"><div id="search"><button type="submit"><img src="img/icons8-search-50.png" class="search_button" alt="search_icon"></button></div>
-         </form>
-         </div>
-         <div id="compte">
-             <p>Compte</p>
-         </div>
-         <div id="shop">
-             <img src="img/shopping-cart.png" alt="shopping_cart_icon" id="shop_button">
-         </div>
-     </header>
-      <div id="side_menu">
-         <div id="champinion" class="categorie">
-             <button type="submit">champignon</button>
-         </div>
-         <div id="Figurine" class="categorie">
-             <button type="submit">Figurine</button>
-         </div>
-         <div id="Jeux" class="categorie">
-             <button type="submit">Jeux</button>
-         </div>
-         <div id="shimmer" class="categorie">
-             <button type="submit">shimmer</button>
-         </div>
-     </div>
+        <?php include 'header.php'; ?>
+        <?php include 'side_menu.php'; ?>
         <div class="carre"></div>
         <br>
         <br>
@@ -93,27 +64,6 @@
             <button type="text" class="Completer_des_informations">Compléter des informations</button>
             </div>
          </div>
-         <footer>
-            <div id="div_1">
-                <a href="Info.php">
-                Info et contact
-                </a>
-            </div>
-            <div id="div_2">
-                <a href="Confidentialite.php">
-                Confidentialité
-                </a>
-            </div>
-            <div id="div_3">
-                <a href="Condition.php">
-                Conditions générales de vente
-                </a>
-            </div>
-            <div id="div_4">
-                <a href="Propos.php">
-                A propos
-                </a>
-            </div>
-        </footer>,
+         <?php include("footer.php"); ?>
     </body>
 </html>

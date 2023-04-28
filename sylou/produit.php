@@ -1,3 +1,37 @@
+<?php
+// Check if the product ID is set in the URL
+if(isset($_GET['id'])) {
+    $productId = $_GET['id'];
+    
+    // Connect to your database and retrieve the product data based on the ID
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "zaun";
+    
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    // Prepare the SQL statement to retrieve the product data
+    $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
+    $stmt->bind_param("i", $productId);
+    
+    // Execute the query
+    $stmt->execute();
+    
+    // Retrieve the product data
+    $result = $stmt->get_result();
+    $product = $result->fetch_assoc();
+    
+    // Close the database connection
+    $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,37 +44,8 @@
     <link rel="stylesheet" href="../css/footer.css">
     <title>Produit</title>
 </head>
-<header>
-  <img id="icon_zaun" src="../img/zaun_crest_icon.png" alt="zaun_icon">
-  <div id="titre_menu">
-      ZAUN
-  </div>
-  <div class="search-container">
-  <form action="index.php">
-    <input type="text" placeholder="Search.." name="search"><div id="search"><button type="submit"><img src="../img/icons8-search-50.png" class="search_button" alt="search_icon"></button></div>
-  </form>
-  </div>
-  <div id="compte">
-    <p>Compte</p>
-  </div>
-  <div id="shop">
-    <img src="../img/shopping-cart.png" alt="shopping_cart_icon" id="shop_button">
-  </div>
-</header>
-<div id="side_menu">
-  <div id="champinion" class="categorie">
-      <button type="submit">champignon</button>
-  </div>
-  <div id="Figurine" class="categorie">
-      <button type="submit">Figurine</button>
-  </div>
-  <div id="Jeux" class="categorie">
-      <button type="submit">Jeux</button>
-  </div>
-  <div id="shimmer" class="categorie">
-      <button type="submit">shimmer</button>
-  </div>
-</div>
+<?php include('header.php'); ?>
+<?php include('side_menu.php'); ?>
 <body>
 
   <div id="side_menu">
@@ -58,12 +63,13 @@
     </div>
   </div>
   <div class="product">
+    <?php if(isset($product)): ?>
         <div class="product-image" style="justify-content: center;">
           <img class="image" src="../img/figurine.jpg" alt="product image">
           <div class="product-details" >
-            <h1>Nom du produit</h1>
-            <p>Description du produit.</p>
-            <p>Prix : $10</p>
+            <h1><?php echo $product['nom']; ?></h1>
+            <p><?php echo $product['Descriptif_Produit']; ?></p>
+            <p><?php echo $product['Prix']; ?></p>
             <form class="formulaire"action="">
               <label class = "label"for="quantity">Quantité :</label>
               <input class="inpute" type="number" id="quantity" name="quantity" min="1" max="10" value="1">
@@ -120,6 +126,8 @@
             </a>
         </div>
   </footer>
-
+  <?php else: ?>
+    <p>No product found with that ID.</p>
+  <?php endif; ?>
 </body>
 </html>

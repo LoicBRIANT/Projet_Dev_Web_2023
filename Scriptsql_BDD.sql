@@ -1,3 +1,6 @@
+CREATE DATABASE siteECommerce;
+USE siteECommerce;
+
 CREATE TABLE Paiement(
    ID INTEGER,
    type VARCHAR(50) NOT NULL,
@@ -27,21 +30,22 @@ CREATE TABLE Role(
    PRIMARY KEY(id)
 );
 
+DROP TABLE IF EXISTS Compte;
+
 CREATE TABLE Compte(
-   id INTEGER,
+   id INTEGER NOT NULL AUTO_INCREMENT,
    prenom_client VARCHAR(50),
    Nom_client VARCHAR(50) NOT NULL,
    email VARCHAR(50) NOT NULL,
    pseudo VARCHAR(50),
    Motdepasse VARCHAR(50),
-   date_creation DATETIME,
-   adrresse VARCHAR(50),
-   telephone INT,
-   nom_entreprrise_ou_particulier VARCHAR(50),
-   id_1 INT NOT NULL,
+   #date_creation DATETIME,
+   #adrresse VARCHAR(50),
+   #telephone INT,
+   #id_1 INT NOT NULL,
    PRIMARY KEY(id),
-   UNIQUE(pseudo),
-   FOREIGN KEY(id_1) REFERENCES Role(id)
+   UNIQUE(pseudo)
+   #FOREIGN KEY(id_1) REFERENCES Role(id)
 );
 
 CREATE TABLE Commanders(
@@ -115,3 +119,10 @@ CREATE TABLE Livraison(
    FOREIGN KEY(id) REFERENCES Produit(id),
    FOREIGN KEY(id_1) REFERENCES Fournisseur(id)
 );
+
+INSERT INTO Role (id, role) VALUES (1, 'Acheteur');
+INSERT INTO Compte (id, prenom_client, Nom_client, email, pseudo, Motdepasse, date_creation, adrresse, telephone, nom_entreprrise_ou_particulier, id_1)
+VALUES (1, 'Sammy', 'Darliz', 'sammy678@gmail.com', 'sam678', 'newt', NOW(), '123 Main Street', 555-1234, 'Entreprise X', 1);
+
+SELECT *
+FROM Compte;
