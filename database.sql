@@ -10,6 +10,9 @@ DROP TABLE IF EXISTS Commentaire;
 DROP TABLE IF EXISTS Etre_Dans_Panier;
 
 CREATE TABLE Compte(
+	prenom VARCHAR(20),
+    nom VARCHAR(20),
+    pseudo VARCHAR(20),
 	ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     addresse_livraison TEXT,
     email VARCHAR(50),
@@ -19,9 +22,9 @@ CREATE TABLE Compte(
     telephone VARCHAR(20),
     nom_role VARCHAR(20)
 );
-
+SELECT * FROM Compte;
 SELECT * FROM Compte WHERE (email = "loic.briant78@gmail.com")and( motdePasse = 1234);
-
+SELECT * FROM Compte WHERE (email = "solene.abbas23@gmail.com");
 INSERT INTO Compte (addresse_livraison,email,motdePasse ,date_creation,adresse,telephone,nom_role) VALUES (null,"loic.briant78@gmail.com","1234",null,null,null,null);
 
 CREATE TABLE Commandes(
@@ -133,3 +136,5 @@ INSERT INTO Categorie_de_produit (Categorie) VALUES ("chemtech");
 
 SELECT *
 FROM Categorie_de_produit;
+
+SELECT * FROM Compte;

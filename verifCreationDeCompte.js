@@ -50,9 +50,10 @@ function validateForm() {
     motDePasseInput.focus();
     return false;
   }
+  
+    // Le formulaire est valide
+  return true;
 
-  // Soumission du formulaire
-  form.submit();
 }
 
 // Écouteur d'événement pour la soumission du formulaire

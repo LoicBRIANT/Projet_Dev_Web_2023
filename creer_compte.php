@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['mot_de_passe'] = $mot_de_passe;*/
 
     // Connexion à la base de données
-    $connexion = mysqli_connect('localhost', 'root', '');
+    $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
 
     // Vérifier si la connexion a réussi
     if (!$connexion) {
@@ -69,6 +69,7 @@ if (isset($_POST['submit'])) {
 <html>
     <head>
         <title>Creation_compte</title>
+        <script src="verifCreationDeCompte.js"></script>
         <link rel="stylesheet" type="text/css" href="css/creation_compte.css">
     </head>  
 
@@ -78,7 +79,7 @@ if (isset($_POST['submit'])) {
         <?php include('side_menu.php'); ?>
         <div class="creer_compte">
             <div class="rectangle">
-                <form id="form" method="POST" action="creer_compte.php">
+                <form id="form" onsubmit="returnValiderFormulaire()" action="creer_compte.php" method="post">
                     <div class="title">Création d'un compte</div>
                     <br>
                     <div class="input-container ic1">
@@ -155,6 +156,15 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                 </form>
+                <script>
+                    function returnValiderFormulaire() {
+                        if(returnValideForm()) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                </script>
             </div>
         </div>
         <?php include('footer.php'); ?>
