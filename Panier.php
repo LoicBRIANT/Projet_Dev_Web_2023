@@ -6,8 +6,8 @@ if(isset($_SERVER[''])) {
     // Connect to your database and retrieve the product data based on the ID
     $servername = "localhost";
     $username = "root";
-    $password = "";
-    $dbname = "zaun";
+    $password = "cytech0001";
+    $dbname = "mydb";
     
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -56,37 +56,16 @@ if(isset($_SERVER[''])) {
   
 <div class="menu_vente">
   <ul class="listepr">
+  <?php foreach ($product as $row): ?>
     <li class="listeprli">
       <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
-      <button class="boutton"> retirer du panier</button>
-    </li>
-    <li class="listeprli">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
+      <h3><?php echo $product['nom']?></h3>
+      <p><?php echo $product['description']?></p>
+      <span class="price"><?php echo $product['description']?></span>
       
       <button class="boutton"> retirer du panier</button>
     </li>
-    <li class="listeprli">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
-      
-      <button class="boutton"> retirer du panier</button>
-    </li>
-    <li class="listeprli">
-      <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3>Product Name 3</h3>
-      <p>Description of product 3.</p>
-      <span class="price">$100.00</span>
-      
-      <button class="boutton"> retirer du panier</button>
-    </li>
+  <?php endforeach; ?>
   </ul>
   <div class="menu_gauche">
     <button class="boutton"> retour</button>

@@ -6,7 +6,7 @@ if(isset($_GET['id'])) {
     // Connect to your database and retrieve the product data based on the ID
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "cytech0001";
     
     // Create connection
     $conn = new mysqli($servername, $username, $password);
@@ -48,6 +48,9 @@ if(isset($_GET['id'])) {
   <?php include "side_menu.php"; ?>
 
   <div class="product">
+    <h1> <?php
+    var_dump($_GET['id']);
+    ?></h1>
     <?php if(isset($product)): ?>
         <div class="product-image" style="justify-content: center;">
           <img class="image" src="../img/figurine.jpg" alt="product image">
@@ -62,32 +65,7 @@ if(isset($_GET['id'])) {
             </form>
   
           </div>
-        </div>
-        
-        <div class="autre">
-          <div class="produit_similaire"><p id="p_is">info suplementaire</p></div>
-            <div class="info_supplementaire">
-                <ul class="liste_info">
-                    <li id="li_ps"> 
-                      <img id="image_ps" src="" alt="">
-                      <h1 id="titre_ps"> nom </h1>
-                      <p id="description_ps"> description </p>
-                    </li>
-                    <li id="li_ps"> 
-                      <img id="image_ps" src="" alt="">
-                      <h1 id="titre_ps"> nom </h1>
-                      <p id="description_ps"> description </p>
-                    </li>
-                    <li id="li_ps"> 
-                      <img id="image_ps" src="" alt="">
-                      <h1 id="titre_ps"> nom </h1>
-                      <p id="description_ps"> description </p>
-                    </li>
-                </ul>
-            </div>
-            
-        </div>
-
+        </div>       
   </div>
   
   <?php else: ?>
