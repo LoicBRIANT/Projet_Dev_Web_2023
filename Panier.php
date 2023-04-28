@@ -1,3 +1,38 @@
+<?php
+// Check if the product ID is set in the URL
+if(isset($_SERVER[''])) {
+    $productId = $_GET['id'];
+    
+    // Connect to your database and retrieve the product data based on the ID
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "zaun";
+    
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    // Prepare the SQL statement to retrieve the product data
+    $stmt = $conn->prepare("SELECT * FROM Etre_Dans_Panier WHERE idCompte = ?");
+    $stmt->bind_param("i", $productId);
+    
+    // Execute the query
+    $stmt->execute();
+    
+    // Retrieve the product data
+    $result = $stmt->get_result();
+    $product = $result->fetch_assoc();
+    
+    // Close the database connection
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
