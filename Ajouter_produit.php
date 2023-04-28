@@ -54,16 +54,16 @@ mysqli_close($conn);
     <?php include "header.php"; ?>
     <?php include "side_menu.php"; ?>
   
-    <div>
-<form method="post">
-  <label for="name">Product Name:</label>
-  <input type="text" name="name" id="name"><br>
-  <label for="description">Description:</label>
-  <textarea name="description" id="description"></textarea><br>
-  <label for="price">Price:</label>
-  <input type="number" name="price" id="price"><br>
-  <button type="submit" name="submit">Add Product</button>
-</form>
+<div>
+    <form method="post">
+        <label for="name">Product Name:</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea><br>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price"><br>
+        <button type="submit" name="submit">Add Product</button>
+    </form>
 </div>
   
   

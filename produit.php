@@ -1,24 +1,25 @@
 <?php
 // Check if the product ID is set in the URL
-if(isset($_GET['id'])) {
-    $productId = $_GET['id'];
+if(isset($_SERVER['QUERY_STRING'])) {
+
+    $productname = explode("=",$_SERVER['QUERY_STRING'])[1];
     
     // Connect to your database and retrieve the product data based on the ID
     $servername = "localhost";
     $username = "root";
     $password = "cytech0001";
+    $db = "mydb";
     
     // Create connection
-    $conn = new mysqli($servername, $username, $password);
-    $conn->prepare("USE myDB;");
+    $conn = new mysqli($servername, $username, $password,$db);
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     
     // Prepare the SQL statement to retrieve the product data
-    $stmt = $conn->prepare("SELECT * FROM products WHERE ID = ?");
-    $stmt->bind_param("i", $productId);
+    $stmt = $conn->prepare("SELECT * FROM type_produit WHERE nom = ?");
+    $stmt->bind_param("s", $productname);
     
     // Execute the query
     $stmt->execute();
@@ -48,16 +49,13 @@ if(isset($_GET['id'])) {
   <?php include "side_menu.php"; ?>
 
   <div class="product">
-    <h1> <?php
-    var_dump($_GET['id']);
-    ?></h1>
     <?php if(isset($product)): ?>
         <div class="product-image" style="justify-content: center;">
-          <img class="image" src="../img/figurine.jpg" alt="product image">
+          <img class="image" src="img/Elixir_of_Iron.webp" alt="product image">
           <div class="product-details" >
             <h1><?php echo $product['nom']; ?></h1>
-            <p><?php echo $product['Descriptif_Produit']; ?></p>
-            <p><?php echo $product['Prix']; ?></p>
+            <p><?php echo $product['Descriptif_produit']; ?></p>
+            <p><?php echo $product['prix']; ?></p>
             <form class="formulaire"action="">
               <label class = "label"for="quantity">Quantité :</label>
               <input class="inpute" type="number" id="quantity" name="quantity" min="1" max="10" value="1">
@@ -69,7 +67,7 @@ if(isset($_GET['id'])) {
   </div>
   
   <?php else: ?>
-    <p>No product found with that ID.</p>
+    <p>No product found with that NAME.</p>
   <?php endif; ?>
 
   <?php include "footer.php"; ?>
