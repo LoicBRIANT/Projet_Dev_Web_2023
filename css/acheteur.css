@@ -1,0 +1,116 @@
+body {
+background-color: rgb(144,132,124);
+margin: 0px;
+}
+
+
+#acheteur .title {
+font-size: 48px;
+left: 16cm;
+}
+
+#acheteur .carre {
+position: absolute; 
+left: 12cm; 
+width: 225px; 
+height: 225px; 
+background: rgb(112,180,116);
+border: 2px solid rgb(129, 63, 15);
+top: 6cm;
+}
+
+#acheteur {
+    width: 85%;
+    background-color: #8f8778;
+    min-height: 100vh;
+    position: relative;
+    
+    top: calc(0vh + 100px);
+    left: calc(0vh + 15%);
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 150px;
+    justify-content: space-evenly;
+}
+
+#profil_img{
+    height: 200px;
+    width: 200px;
+    border: black solid 1px;
+}
+
+#left_acheteur{
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#right_acheteur{
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#acheteur p{
+    margin: 5px;
+}
+
+#acheteur a {
+background-color: rgb(96,84,76);
+border: 2px solid rgb(168, 104, 28);
+color: black; 
+font-weight: bold;
+text-decoration: none;
+text-align: center;
+width:229px;
+font-size: 22px;
+padding-top: 14px;
+padding-bottom: 14px;
+}
+
+#acheteur button.Completer_des_informations {
+height: 5cm;
+width:600px;
+}
+
+#acheteur .Completer_des_informations {
+font-size: 20px;
+}
+#acheteur .style_butt{
+font-size: 22px;
+}
+#acheteur .para_particulier {
+position: absolute; 
+left: 24cm; 
+margin: 0;
+font-size: 38px;
+}
+
+#acheteur .pani {
+position: absolute;
+top: 13cm;
+left: 12cm;
+}
+
+#acheteur .s_abon {
+position: absolute;
+top: 15cm;
+left: 12cm;
+}
+
+#acheteur .comm {
+position: absolute;
+top: 17cm;
+left: 12cm;
+}
+
+#acheteur .complet {
+position: absolute;
+top: 13cm;
+left: 24cm;
+}

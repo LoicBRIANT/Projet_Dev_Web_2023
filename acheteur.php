@@ -1,27 +1,46 @@
-<head>
-    <title>Page_vendeur</title>
-    <link rel="stylesheet" href="css/acheteur.css">
-</head>  
-<div id="acheteur">
-    <p>Image du profil</p>
-    <p> Informations de l'utilisateur </p>
-    <br>
-    <p>-identifiant/adresse mail/téléphone</p>
-    <p>-nom de l'entrerpise ou statut particulier</p>
 
-    <div class="input-container-form ic1">
-        <button type="text" class="Panier">Panier</button>
-    </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page_vendeur</title>
+        <link rel="stylesheet" href="css/acheteur.css">
+    </head> 
+    <body> 
+        <?php include "header.php"; ?>
+        <?php include "side_menu.php"; ?>
+        <div id="acheteur">
+            <div id="left_acheteur">
+                <?php
+                    echo " <img src='img/profil_picture/".$_SESSION['info_login']['ID'].".jpg' id='profil_img' alt='Image de profil'>"
+                ?>
+                <a href="Panier.php" class="input-container-form ic1">
+                    Panier
+                </a>
+                <a href="abonner.php" class="input-container-form ic1">
+                    S'abonner
+                </a>
 
-        <div class="input-container-form ic1">
-        <button type="text" class="S'abonner">S'abonner</button>
+                <a href="Commandes.php" class="input-container-form ic1">
+                    Commande
+                </a>
+            </div>
+            <div id="right_acheteur">
+                <?php
+                    echo "<p>Prenom : ".$_SESSION['info_login']['prenom']."</p>";
+                    echo "<p>Nom : ".$_SESSION['info_login']['nom']."</p>";
+                    echo "<p>Pseudo : ".$_SESSION['info_login']['pseudo']."</p>";
+                    echo "<p>Email : ".$_SESSION['info_login']['email']."</p>";
+                    echo "<p>Date de création du compte : ".$_SESSION['info_login']['date_creation']."</p>";
+                    echo "<p>Addresse : ".$_SESSION['info_login']['adresse']."</p>";
+                    echo "<p>Telephone : ".$_SESSION['info_login']['telephone']."</p>";
+                    echo "<p>Type du compte : ".$_SESSION['info_login']['nom_role']."</p>";
+                    echo "<p>ID : ".$_SESSION['info_login']['ID']."</p>";
+                ?>
+                <a href="Completer_info.php" class="input-container-form ic1">
+                    Compléter des informations
+                </a>
+            </div>
         </div>
-        <div class="input-container-form ic1">
-        <button type="text" class="Commande">Commande</button>
-        </div>
-
-        <div class="input-container-form ic1">
-        <button type="text" class="Compléter des informations">Compléter des informations</button>
-        </div>
-    </div>
-</div>
+        <?php include "footer.php"; ?>
+    </body>
+</html>

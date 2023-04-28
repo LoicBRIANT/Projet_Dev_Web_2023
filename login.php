@@ -59,6 +59,7 @@
                     $_SESSION['info_login']['adresse'] = $var->adresse;
                     $_SESSION['info_login']['telephone'] = $var->telephone;
                     $_SESSION['info_login']['nom_role'] = $var->nom_role;
+                    $_SESSION['info_login']['ID'] = $var->ID;
                 } else {
                     echo 'Erreur lors de la connexion au compte: ' . mysqli_error($connexion);
                 }

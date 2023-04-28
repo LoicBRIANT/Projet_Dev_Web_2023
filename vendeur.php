@@ -1,82 +1,49 @@
+
 <!DOCTYPE html>
 <html>
     <head>
-        <br>
-        <title>Page_vendeur</title>
-        <link rel="stylesheet" type="text/css" href="css/style_vendeur.css">
-        <link rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="css/side_menu.css">
-        <link rel="stylesheet" href="css/footer.css">
-        <br>
-        <br>
-    </head>  
+        <title>Page vendeur</title>
+        <link rel="stylesheet" href="css/vendeur.css">
+    </head> 
+    <body> 
+        <?php include "header.php"; ?>
+        <?php include "side_menu.php"; ?>
+        <div id="vendeur">
+            <div id="left_vendeur">
+                <?php
+                    echo " <img src='img/profil_picture/".$_SESSION['info_login']['ID'].".jpg' id='profil_img' alt='Image de profil'>"
+                ?>
+                <a href="Panier.php" class="input-container-form ic1">
+                    Panier
+                </a>
+                <a href="abonner.php" class="input-container-form ic1">
+                    S'abonner
+                </a>
+                <a href="menu_vente.php" class="input-container-form ic1">
+                    Menu de vente
+                </a>
 
-    <body>
-    <?php include 'header.php'; ?>
-    <?php include 'side_menu.php'; ?>
-    <div class="carre"></div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p class="para_particulier"> Informations de l'utilisateur </p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p class="para_particulier">-identifiant/adresse mail/téléphone</p>
-    <br>
-    <br>
-    <p class="para_particulier">-nom de l'entreprise ou statut particulier</p>
-    <?php
-        session_start(); // Démarrer la session
-        if(isset($_SESSION['email'])) { // Vérifier si la variable de session 'email' est définie
-            echo '<div class="input-container-form">';
-            echo '<p>Identifiant/Adresse mail/Téléphone: '.$_SESSION['email'].'</p>';
-            echo '</div>';
-        }
-        if(isset($_SESSION['nom_entreprise'])) { // Vérifier si la variable de session 'nom_entreprise' est définie
-            echo '<div class="input-container-form">';
-            echo '<p>Nom de l\'entreprise ou statut particulier: '.$_SESSION['nom_entreprise'].'</p>';
-            echo '</div>';
-        }
-    ?>
-    <div class="input-container-form">
-        <div class=pani>
-            <button type="button" class="style_butt">
-                <a href=Panier.html>Panier</a>
-            </button>
+                <a href="Commandes.php" class="input-container-form ic1">
+                    Commande
+                </a>
+            </div>
+            <div id="right_vendeur">
+                <?php
+                    echo "<p>Prenom : ".$_SESSION['info_login']['prenom']."</p>";
+                    echo "<p>Nom : ".$_SESSION['info_login']['nom']."</p>";
+                    echo "<p>Pseudo : ".$_SESSION['info_login']['pseudo']."</p>";
+                    echo "<p>Email : ".$_SESSION['info_login']['email']."</p>";
+                    echo "<p>Date de création du compte : ".$_SESSION['info_login']['date_creation']."</p>";
+                    echo "<p>Addresse : ".$_SESSION['info_login']['adresse']."</p>";
+                    echo "<p>Telephone : ".$_SESSION['info_login']['telephone']."</p>";
+                    echo "<p>Type du compte : ".$_SESSION['info_login']['nom_role']."</p>";
+                    echo "<p>ID : ".$_SESSION['info_login']['ID']."</p>";
+                ?>
+                <a href="Completer_info.php" class="input-container-form ic1">
+                    Compléter des informations
+                </a>
+            </div>
         </div>
-    </div>
-
-     <div class="input-container-form">
-        <div class="s_abon">
-        <button type="submit" class="style_butt">S'abonner</button>
-        </div>
-     </div>
-     <div class="input-container-form">
-        <div class="comm">
-            <button type="button" class="style_butt">
-                <a href=Commandes.html>Commande</a>
-            </button>
-        </div>
-     </div>
-     <div class="input-container-form">
-        <div class="vente">
-            <button type="button" class="style_butt">
-                <a href=menu.html>Menu de vente</a>
-            </button>
-        </div>
-     </div>
-
-     <div class="input-container-form">
-        <div class="complet">
-        <button type="text" class="Completer_des_informations">Compléter des informations</button>
-        </div>
-     </div>
-     <?php include("footer.php"); ?>
-</body>
-
+        <?php include "footer.php"; ?>
+    </body>
 </html>
