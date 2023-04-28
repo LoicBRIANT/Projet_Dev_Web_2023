@@ -10,14 +10,16 @@ if (isset($_POST['submit'])) {
     $mot_de_passe = $_POST['mot_de_passe'];
 
 // Stocker les données dans la session
-    $_SESSION['email'] = $email;
-    $_SESSION['mot_de_passe'] = $mot_de_passe;
+    $_SESSION['connected'] = false;
 
     // Connexion à la base de données
     $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
 
     // Vérifier si la connexion a réussi
     if (!$connexion) {
+        $_SESSION['email'] = $email;
+        $_SESSION['mot_de_passe'] = $mot_de_passe;
+        $_SESSION['connected'] = true;
         die('Erreur de connexion au compte : ' . mysqli_connect_error());
     }else{
         echo "connexion au compte";
