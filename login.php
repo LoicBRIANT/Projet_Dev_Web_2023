@@ -1,49 +1,60 @@
 <?php
-session_start();
+
+session_start(); // Démarrage de la session
+
 // Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['submit'])) {
     // Récupérer les valeurs du formulaire
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    $email = $_POST['email'];
+    $mot_de_passe = $_POST['mot_de_passe'];
+
+    /// Stocker les données dans la session
+    $_SESSION['email'] = $email;
+    $_SESSION['mot_de_passe'] = $mot_de_passe;
 
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "votre_nom_d_utilisateur";
-    $password_db = "votre_mot_de_passe";
-    $dbname = "votre_nom_de_base_de_donnees";
-
-    // Créer une connexion
-    $conn = mysqli_connect($servername, $username, $password_db, $dbname);
+    $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
 
     // Vérifier si la connexion a réussi
-    if (!$conn) {
-        die("La connexion à la base de données a échoué: " . mysqli_connect_error());
+    if (!$connexion) {
+        die('Erreur de connexion au compte : ' . mysqli_connect_error());
+    }else{
+        echo "connexion au compte";
     }
 
-    // Échapper les caractères spéciaux pour éviter les injections SQL
-    $email = mysqli_real_escape_string($conn, $email);
-    $password = mysqli_real_escape_string($conn, $password);
+    if (!(mysqli_query($connexion,"USE siteECommerce;"))) {
+        die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
+    }else{
+        echo "connexion a la bdd";
+    }
 
     // Requête SQL pour récupérer l'utilisateur correspondant à l'email et au mot de passe saisis
-    $sql = "SELECT * FROM utilisateurs WHERE email='$email' AND mot_de_passe='$password'";
+    $requete = "SELECT * FROM Compte WHERE email='$email' AND MotdePasse='$mot_de_passe'";
 
-    // Exécuter la requête SQL
-    $result = mysqli_query($conn, $sql);
-
-    // Vérifier si l'utilisateur existe
-    if (mysqli_num_rows($result) == 1) {
-        // L'utilisateur est connecté avec succès, rediriger vers la page d'accueil
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['connecter'] = true;
-        header("Location: index.php");
-        exit();
+    // Exécuter la requête
+    $resultat = mysqli_query($connexion, $requete);
+    if ($resultat) {
+    if(mysqli_num_rows($resultat) == 1) {
+    echo '<div>Vous êtes connecté.</div>';
     } else {
-        // L'utilisateur n'existe pas ou les informations de connexion sont incorrectes, afficher un message d'erreur
-        $error_message = "Email ou mot de passe incorrect.";
+    echo '<div>Erreur lors de la connexion au compte : mauvais identifiants.</div>';
+    }
+    } else {
+    echo '<div>Erreur lors de la connexion au compte : ' . mysqli_error($connexion)."</div>";
     }
 
     // Fermer la connexion à la base de données
-    mysqli_close($conn);
+    mysqli_close($connexion);
+
+    // Redirection vers la page de connexion
+    header("Location: index.php");
+    exit; // Assure que le script s'arrête après la redirection
+}
+
+// Si l'utilisateur est déjà connecté, on le redirige vers la page d'accueil
+if(isset($_SESSION['user_id'])) {
+    header("Location: accueil.php");
+    exit();
 }
 ?>
 
@@ -63,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php include 'side_menu.php'; ?>
 
         <div class="rectangle">
-            <form id="form">
+            <form id="form" method="POST" action="login.php">
                 <div class="title">Login</div>
                 <br>
                 <div class="input-container ic1">
@@ -84,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br><br>
                 <div class="input-container-form">
                     <div class="connec">
-                        <button type="submit" class="Seconnecter">Se connecter</button>
+                        <input type="submit" class="Seconnecter" name ="submit" value = "Se connecter" >
                     </div>
                 </div>
                 <br>
@@ -102,7 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <?php include 'footer.php'; ?>
-    </body>
+</body>
 </html>
+
 
 
