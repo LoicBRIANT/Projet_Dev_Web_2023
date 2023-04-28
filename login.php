@@ -44,7 +44,6 @@
 
                 // Préparer la requête d'insertion des données dans la table Compte
                 $requete = "SELECT * FROM Compte WHERE (email = '".$email."' )and( motdePasse = '".$mot_de_passe."') LIMIT 1;";
-                echo "requete string done";
                 // Exécuter la requête
                 var_dump($var);
                 if ($result = $connexion -> query($requete)) {

@@ -9,6 +9,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $identifiant = $_POST['identifiant'];
     $mot_de_passe = $_POST['mot_de_passe'];
+    $role = $_POST['role'];
 
 /* Stocker les données dans la session
     $_SESSION['prenom'] = $prenom;
@@ -44,7 +45,7 @@ if (isset($_POST['submit'])) {
 
 
     // Préparer la requête d'insertion des données dans la table Compte
-    $requete = "INSERT INTO Compte (prenom,nom,pseudo,addresse_livraison,email,motdePasse ,date_creation,adresse,telephone,nom_role) VALUES ('$prenom','$nom','$identifiant',null,'$email', '$mot_de_passe',null, null,null,null);";
+    $requete = "INSERT INTO Compte (prenom,nom,pseudo,addresse_livraison,email,motdePasse ,date_creation,adresse,telephone,nom_role) VALUES ('$prenom','$nom','$identifiant',null,'$email', '$mot_de_passe',null, null,null,'$role');";
 
     // Exécuter la requête
     if (mysqli_query($connexion, $requete)) {
@@ -58,7 +59,7 @@ if (isset($_POST['submit'])) {
 
 
     // Redirection vers la page de connexion
-    header("Location: login.php");
+    header("Location: deconnexion.php");
     exit; // Assure que le script s'arrête après la redirection
 }
 
@@ -121,11 +122,17 @@ if (isset($_POST['submit'])) {
                         <input id="Confirmer Mot de passe" class="input" type="text" name="Confirmer votre mot de passe" placeholder="Confirmer votre mot de passe " />
                         <div class="cut"></div>
                     </div>
-            
-                    <br><br>
                     <br>
-                    <br>
-                    <br>
+                    <div class="input-container ic1">
+                        <label for="role" class="placeholder">Choisissez votre type de compte : </label>
+                        <br>
+                            <select id="cars" name="role" class="input">
+                            <option value="acheteur">Acheteur</option>
+                            <option value="vendeur">Vendeur</option>
+                            </select> 
+                        <div class="cut"></div>
+                    </div>
+                    <div id="button_bar_compte">
                         <div class="input-container-form">
                             <div class="connec" >
                                 <input type="submit" class="bouton" name="submit" value="Créer">
@@ -146,6 +153,7 @@ if (isset($_POST['submit'])) {
                                 </button>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

@@ -20,13 +20,21 @@ body {
 	border: 2px solid rgb(150, 103, 16);
   background: rgb(112,180,116);
 }
+
+#button_bar_compte{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100px;
+  width: 100%;
+}
 .rectangle {
     background-color: rgb(160, 124, 44);
     padding: 20px;
     width: 800px;
-    height: 430px;
     margin: auto;
-    position: fixed;
+    position: relative;
     top: 0;
     bottom: 0;
     left: 0;
@@ -59,21 +67,15 @@ body {
   }
   
   .retour {
-    position: absolute;
-    top: 16.3cm;
-    right: 1cm;
+    order: 3;
   }
 
   .connec {
-    position: absolute;
-    top: 16.3cm;
-    right: 9cm;
+    order: 2;
   }
 
   .compt {
-    position: absolute;
-    top: 16.3cm;
-    left: 1cm;
+    order: 1;
   }
 
   .ic1>*::placeholder {
@@ -91,4 +93,5 @@ body {
     top: calc(0vh + 100px);
     left: calc(0vh + 15%);
     margin-bottom: 100px;
+    padding-top: 100px;
 }
