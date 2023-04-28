@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifier si l'utilisateur existe
     if (mysqli_num_rows($result) == 1) {
         // L'utilisateur est connecté avec succès, rediriger vers la page d'accueil
-        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['ID'] = $user['id'];
         $_SESSION['connecter'] = true;
         header("Location: index.php");
         exit();
