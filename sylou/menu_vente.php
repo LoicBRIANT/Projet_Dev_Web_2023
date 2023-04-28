@@ -51,6 +51,10 @@
       <p>Description of product 3.</p>
       <span class="price">$100.00</span>
       <p>Nombre vendu</p>
+      <form action="retirer_vente.php?id=<?php echo $productId; ?>" method="post">
+        <button> retirer de la vente</button>
+      </form>
+      
     </li>
     <li class="listeprli">
       <img src="https://via.placeholder.com/150" alt="Product Image">
@@ -73,6 +77,17 @@
       <span class="price">$100.00</span>
     </li>
   </ul>
+  <body>
+    <button>
+      <p>ajouter un produit</p>
+    </button>
+    <button>
+      <p>Vos contrats</p>
+    </button>
+    <button>
+      <p> Faire nouveau contrat</p>
+    </button>
+  </body>
 </div>
   
   
