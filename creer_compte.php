@@ -3,7 +3,7 @@
 session_start(); // démarrer la session
 
 // Vérifier si le formulaire a été soumis
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (isset($_POST['submit'])) {
 
     // Récupérer les données du formulaire
     $prenom = $_POST['prenom'];
@@ -12,22 +12,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $identifiant = $_POST['identifiant'];
     $mot_de_passe = $_POST['mot_de_passe'];
 
-// Stocker les données dans la session
+/* Stocker les données dans la session
     $_SESSION['prenom'] = $prenom;
     $_SESSION['nom'] = $nom;
     $_SESSION['email'] = $email;
     $_SESSION['identifiant'] = $identifiant;
-    $_SESSION['mot_de_passe'] = $mot_de_passe;
+    $_SESSION['mot_de_passe'] = $mot_de_passe;*/
 
     // Connexion à la base de données
     $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
 
     // Vérifier si la connexion a réussi
     if (!$connexion) {
+        die('Erreur de connexion au compte : ' . mysqli_connect_error());
+    }else{
+        echo "connexion au compte";
+    }
+
+    if (!(mysqli_query($connexion,"USE siteECommerce;"))) {
         die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
     }else{
-        echo "trop bien";
+        echo "connexion a la bdd";
     }
+
 
     // Échapper les caractères spéciaux dans les données du formulaire pour éviter les injections SQL
     $prenom = mysqli_real_escape_string($connexion, $prenom);
@@ -36,22 +43,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $identifiant = mysqli_real_escape_string($connexion, $identifiant);
     $mot_de_passe = mysqli_real_escape_string($connexion, $mot_de_passe);
 
+
+
     // Préparer la requête d'insertion des données dans la table Compte
-    $requete = "INSERT INTO Compte (prenom, nom, email, identifiant, mot_de_passe) VALUES ('$prenom', '$nom', '$email', '$identifiant', '$mot_de_passe')";
+    $requete = "INSERT INTO Compte (prenom_client, Nom_client, email, pseudo, Motdepasse) VALUES ('$prenom', '$nom', '$email', '$identifiant', '$mot_de_passe')";
 
     // Exécuter la requête
     if (mysqli_query($connexion, $requete)) {
-        echo 'Le compte a été créé avec succès.';
+        echo '<div>Le compte a été créé avec succès.</div>';
     } else {
-        echo 'Erreur lors de la création du compte : ' . mysqli_error($connexion);
+        echo '<div>Erreur lors de la création du compte : ' . mysqli_error($connexion)."</div>";
     }
 
     // Fermer la connexion
     mysqli_close($connexion);
 
-// fermer la session 
-session_unset(); // Détruit toutes les variables de session
-session_destroy();
+
     // Redirection vers la page de connexion
     header("Location: login.php");
     exit; // Assure que le script s'arrête après la redirection
@@ -59,7 +66,6 @@ session_destroy();
 
 ?>
 
-<?php?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -79,7 +85,7 @@ session_destroy();
         <?php include('side_menu.php'); ?>
 
         <div class="rectangle">
-            <form id="form" method="post">
+            <form id="form" method="POST" action="creer_compte.php">
                 <div class="title">Création d'un compte</div>
                 <br>
                 <div class="input-container ic1">
@@ -122,7 +128,7 @@ session_destroy();
                     <br>
                     <input id="Confirmer Mot de passe" class="input" type="text" name="Confirmer votre mot de passe" placeholder="Confirmer votre mot de passe " />
                     <div class="cut"></div>
-            </div>
+                </div>
         
                 <br><br>
                 <br>
@@ -130,7 +136,7 @@ session_destroy();
                 <br>
                     <div class="input-container-form">
                         <div class="connec">
-                            <button type="submit" class="Création_d'un_compte" name="submit">Créer</button>
+                            <input type="submit" class="Création_d'un_compte" name="submit" value="Créer">
                         </div>
                     </div>
                     <br>
@@ -154,4 +160,7 @@ session_destroy();
         <?php include('footer.php'); ?>
     </body>
 </html>
+
+    
+
 
