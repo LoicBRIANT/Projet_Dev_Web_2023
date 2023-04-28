@@ -1,7 +1,6 @@
 body {
     background-color: rgb(144,132,124);
-    position: absolute;
-    top: 0;
+    margin: 0px;
   }
 
 .title {
@@ -13,8 +12,8 @@ body {
 	border: 0;
 	box-sizing: border-box;
 	color: #08971c;
-	font-size: 40px;
-	height: 140%;
+	font-size: 28px;
+	height: 50px;
 	outline: 0;
 	padding: 4px 20px 0;
 	width: 100%;
@@ -36,7 +35,7 @@ body {
   }
 
 
-  button {
+  .bouton {
     background-color: rgb(96,84,76);
     border: 2px solid rgb(168, 104, 28);
     color: black; 
@@ -44,6 +43,15 @@ body {
     font-weight: bold; 
     height: 1.25cm;
     width: 5cm;
+  }
+
+  .bouton:hover{
+    cursor: pointer;
+  }
+  .bouton a{
+
+    color: black; 
+    text-decoration: none;
   }
 
   .input-container-form4 {
@@ -68,12 +76,19 @@ body {
     left: 1cm;
   }
 
-  ::placeholder {
+  .ic1>*::placeholder {
     font-size: 14px;
     color: maroon;
   }
-<<<<<<< Updated upstream
-  
-=======
-  
->>>>>>> Stashed changes
+
+.creer_compte{
+    width: 85%;
+    background-color: #8f8778;
+    min-height: 100vh;
+    position: relative;
+
+
+    top: calc(0vh + 100px);
+    left: calc(0vh + 15%);
+    margin-bottom: 100px;
+}

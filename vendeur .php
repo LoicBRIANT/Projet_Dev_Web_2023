@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <br>
         <title>Page_vendeur</title>
         <link rel="stylesheet" type="text/css" href="css/style_vendeur.css">
-        <link rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="css/side_menu.css">
-        <link rel="stylesheet" href="css/footer.css">
-        <br>
-        <br>
     </head>  
 
     <body>

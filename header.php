@@ -15,11 +15,12 @@
     </div>
     <div id="button_bar">
       <?php
+      session_start();
         //On affiche différentes informations si l'utilisateur est connecté ou non
         if(!isset($_SESSION['info_login']) || empty($_SESSION['info_login'])) {
             echo("<a href='login.php' id='bouton'>Connexion</a>");
         } else {
-            echo("<a href='compte.php' id='bouton'>Profil" . $_SESSION['info_login']['pseudo'] . "</a>");
+            echo("<a href='compte.php' id='bouton'>Profil : " . $_SESSION['info_login']['pseudo'] . "</a>");
             echo("<a href='deconnexion.php' id='bouton'>Déconnexion</a>");
         }
       ?>

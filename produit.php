@@ -7,18 +7,17 @@ if(isset($_GET['id'])) {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "zaun";
     
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    
+    $conn = new mysqli($servername, $username, $password);
+    $conn->prepare("USE myDB;");
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     
     // Prepare the SQL statement to retrieve the product data
-    $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
+    $stmt = $conn->prepare("SELECT * FROM products WHERE ID = ?");
     $stmt->bind_param("i", $productId);
     
     // Execute the query
