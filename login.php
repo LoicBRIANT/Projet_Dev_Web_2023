@@ -74,36 +74,43 @@ if (isset($_POST['submit'])) {
         
         <div class="rectangle">
         
-            <form id="form">
+            <form id="form" method="POST" action="login.php">
         
         
                 <div class="title">Login</div>
                 <br>
                 <br>
-                <input id="Mot de passe" class="input" type="text" placeholder=" " />
-                <div class="cut"></div>
+                <div class="input-container ic1">
+                        <label for="Mot de passe" class="placeholder">Mot de passe :</label>
+                        <br>
+                        <br>
+                        <input id="Mot de passe" class="input" type="text" placeholder=" " />
+                        <div class="cut"></div>
+                </div>
+        
+                <br><br>
+                    <div class="input-container-form">
+                        <div class="connec">
+                            <input type="submit" class="Seconnecter" name ="submit" value ="Se connecter">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-container-form">
+                        <div class="compt">
+                            <button type="button" class="Créer compte">
+                                <a href=creation_compte.html>Aller vers page création de compte</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-container-form">  
+                        <div class ="retour">
+                            <button type="button" class="Retour vers l'accueil">
+                                <a href=Accueil.html>Retour vers l'accueil</a>
+                            </button>
+                        </div>
+                    </div>
+            </form>
         </div>
-
-        <br><br>
-            <div class="input-container-form">
-                <div class="connec">
-                <button type="text" class="Seconnecter">Se connecter</button>
-                </div>
-            </div>
-            <br>
-                <div class="input-container-form">
-                <div class="compte">
-                <button type="text" class="Créer compte">Créer compte</button>
-                </div>
-            </div>
-            <div class="input-container-form">  
-                <div class ="retour">
-                <button type="text" class="Retour vers l'accueil">Retour vers l'accueil</button>
-                </div>
-            </div>
-    </form>
-    </div>
-</div>
-
-<?php include "footer.php"; ?>
-    
+        <?php include('footer.php'); ?>
+    </body>
+</html>
