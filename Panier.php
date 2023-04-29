@@ -64,40 +64,13 @@ if(isset($_SESSION['cart'])) {
       <h3><?php echo $produits['nom']?></h3>
       <p><?php echo $produits['Descriptif_produit']?></p>
       <span class="price"><?php echo $produits['prix']?></span>
-      
-      <button class="boutton"> <a class ="tt">du panier</a> </button>
-      <script>
-        $(document).ready(function() {
-        $('.tt').click(function() {
-          var index = $(this).closest('li').index();
-          $.ajax({
-            url: 'script.php',
-            type: 'post',
-            data: {
-              removeIndex: index
-            },
-            success: function(response) {
-              console.log(response);
-              location.reload(); // reload the page after removing the item
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-              console.log(textStatus, errorThrown);
-            }
-          });
-        });
-      });
-      </script>
-      <?php
-        if (isset($_POST['myButton'])) {
-    // Action to be executed when the button is clicked
-          $idd = array_search($produits,$_SESSION['cart']);
-          unset($_SESSION['cart'][$idd]);
-        }
-      ?>
+      <form id="form_boutton_panier" method="post" action="Retirer_panier.php?<?php echo $produits['nom']?>">
+        <button class="boutton">Retirer du panier</button>
+      </form>
     </li>
   <?php endforeach; ?>
 
-  <?php else :?>
+  <?php elseif (!isset($_SESSION['cart'])) :?>
     <p> panier vide</p>
   <?php endif; ?>
   </ul>
