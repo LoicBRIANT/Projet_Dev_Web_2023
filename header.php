@@ -15,7 +15,9 @@
     </div>
     <div id="button_bar">
       <?php
-        session_start();
+      if (session_status() == PHP_SESSION_NONE) {
+          session_start();
+      }
         //On affiche différentes informations si l'utilisateur est connecté ou non
         if(!isset($_SESSION['info_login']) || empty($_SESSION['info_login'])) {
             echo("<a href='login.php' id='bouton'>Connexion</a>");
