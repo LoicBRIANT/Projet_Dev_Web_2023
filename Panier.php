@@ -63,6 +63,7 @@ if(isset($_SESSION['cart'])) {
       <img src="https://via.placeholder.com/150" alt="Product Image">
       <h3><?php echo $produits['nom']?></h3>
       <p><?php echo $produits['Descriptif_produit']?></p>
+        <p><?php echo $produits['quantity']?></p>
       <span class="price"><?php echo $produits['prix']?></span>
       <form id="form_boutton_panier" method="post" action="Retirer_panier.php?<?php echo $produits['nom']?>">
         <button class="boutton">Retirer du panier</button>

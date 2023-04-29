@@ -2,6 +2,7 @@
 //TODO : AJOUT DELAI LIVRAISON FOURNISSEUR ETC.
 session_start();
 if (isset($_SESSION['info_login'])){
+    var_dump($_SESSION['cart']);
     $userid = (int)$_SESSION['info_login']['ID'];
     $connexion = mysqli_connect('localhost', 'root', '', 'mydb');
     $price = 0;
@@ -12,8 +13,8 @@ if (isset($_SESSION['info_login'])){
     $cart = $_SESSION['cart'];
     var_dump($_SESSION['info_login']);
     foreach($cart as $key => $products){
-        $requeteproduit= "INSERT INTO produit (date_livraison,delai,idVendeur,idCommandes,idTypeProduit,idFournisseur) values (NOW(),4,1,{$commandeid},{$products['ID']},1);";
-        $requeteproduit .="DELETE FROM etre_dans_panier WHERE (idCompte = {$userid} and idTypeProduit = {$products['ID']})";
+        $requeteproduit= "INSERT INTO Etre_Vendue (quantite,idCompte,idTypeProduit) values ({$products['quantity']},{$_SESSION['info_login']['ID']},{$products['ID']});";
+        $requeteproduit .="DELETE FROM etre_dans_panier WHERE (idCompte = {$userid} and idTypeProduit = {$products['ID']});";
         if (mysqli_multi_query($connexion,$requeteproduit)) {
             do {
                 // consume all result sets
