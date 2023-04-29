@@ -11,12 +11,12 @@ if (isset($_POST['submit'])) {
     $mot_de_passe = $_POST['mot_de_passe'];
     $role = $_POST['role'];
 
-/* Stocker les données dans la session
-    $_SESSION['prenom'] = $prenom;
-    $_SESSION['nom'] = $nom;
-    $_SESSION['email'] = $email;
-    $_SESSION['identifiant'] = $identifiant;
-    $_SESSION['mot_de_passe'] = $mot_de_passe;*/
+    /* Stocker les données dans la session
+        $_SESSION['prenom'] = $prenom;
+        $_SESSION['nom'] = $nom;
+        $_SESSION['email'] = $email;
+        $_SESSION['identifiant'] = $identifiant;
+        $_SESSION['mot_de_passe'] = $mot_de_passe;*/
 
     // Connexion à la base de données
     $connexion = mysqli_connect('localhost', 'root', '');
@@ -67,126 +67,97 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Creation_compte</title>
-        <link rel="stylesheet" type="text/css" href="css/creation_compte.css">
-    </head>  
+<head>
+    <title>Creation_compte</title>
+    <link rel="stylesheet" type="text/css" href="css/creation_compte.css">
+</head>
 
-    <body>
+<body>
 
-        <?php include('header.php'); ?>
-        <?php include('side_menu.php'); ?>
-        <div class="creer_compte">
-            <div class="rectangle">
-                <form id="myForm" action="creer_compte.php" method="post">
-                    <div class="title">Création d'un compte</div>
-                    <br>
-                    <div class="input-container ic1">
-                        <label for="Entrer votre prénom" class="placeholder">Prénom : </label>
-                        <br>
-                        <input id="prenom" class="input" type="text" name="prenom" placeholder="Entrer votre prénom " />
-                        <div class="cut"></div>
-                    </div>
-                    <br>
-                    <div class="input-container ic1">
-                        <label for="Entrer votre nom" class="placeholder">Nom : </label>
-                        <br>
-                        <input id="nom" class="input" type="text" name="nom" placeholder="Entrer votre nom" />
-                        <div class="cut"></div>
-                    </div>
-                    <br>
-                    <div class="input-container ic1">
-                        <label for="Entrer une Adresse e-mail" class="placeholder">Adresse e-mail : </label>
-                        <br>
-                        <input id="Adresse e-mail" class="input" type="text" name="email" placeholder="Entrer votre adresse e-mail " />
-                        <div class="cut"></div>
-                    </div>
-                    <br>
-                    <div class="input-container ic1">
-                        <label for="Entrer un identifiant" class="placeholder">Identifiant : </label>
-                        <br>
-                        <input id="Adresse e-mail" class="input" type="text" name="identifiant" placeholder="Entrer votre identifiant " />
-                        <div class="cut"></div>
-                    </div>
-                    <br>
-                    <div class="input-container ic1">
-                            <label for="Entrer votre Mot de passe" class="placeholder">Entrer votre mot de passe :</label>
-                            <br>
-                            <input id="Mot de passe" class="input" type="text" name="mot_de_passe" placeholder="Entrer votre mot de passe " />
-                            <div class="cut"></div>
-                    </div>
-                    <br>
-                    <div class="input-container ic1">
-                        <label for="Confirmer votre Mot de passe" class="placeholder">Confirmer votre mot de passe :</label>
-                        <br>
-                        <input id="Confirmer Mot de passe" class="input" type="text" name="Confirmer votre mot de passe" placeholder="Confirmer votre mot de passe " />
-                        <div class="cut"></div>
-                    </div>
-                    <br>
-                    <div class="input-container ic1">
-                        <label for="role" class="placeholder">Choisissez votre type de compte : </label>
-                        <br>
-                            <select id="cars" name="role" class="input">
-                            <option value="acheteur">Acheteur</option>
-                            <option value="vendeur">Vendeur</option>
-                            </select> 
-                        <div class="cut"></div>
-                    </div>
-                    <div id="button_bar_compte">
-                        <div class="input-container-form">
-                            <div class="connec" >
-                                <button type="submit">"Créer"</button>
-                            </div>
-                        </div>
-                        <br>
-                        <!--<div class="input-container-form">
-                            <div class="compt">
-                                <button type="button" class="bouton">
-                                    <a href=index.php>Retour vers l'accueil</a>
-                                </button>
-                            </div>
-                        </div>-->
-                        <div class="input-container-form">  
-                            <div class ="retour">
-                                <button type="button" class="bouton">
-                                    <a href=login.php>Retour vers page de Login</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                <!-- Ce script js permet d'empêcher le formulaire d'être soumis si les champs sont vides -->
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        document.querySelector("#myForm").addEventListener("submit", function(event) {
-                        if (document.querySelector("#prenom").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'prenom'");
-                        }
-                        if (document.querySelector("#nom").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'nom'");
-                        }
-                        if (document.querySelector("#email").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'email'");
-                        }
-                        if (document.querySelector("#identifiant").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'identifiant'");
-                        }
-                        if (document.querySelector("#mot_de_passe").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'mot_de_passe'");
-                        }
-                        });
-                    });
-                </script>
-
-
+<?php include('header.php'); ?>
+<?php include('side_menu.php'); ?>
+<div class="creer_compte">
+    <div class="rectangle">
+        <form id="form" method="POST" action="creer_compte.php">
+            <div class="title">Création d'un compte</div>
+            <br>
+            <div class="input-container ic1">
+                <label for="Entrer votre prénom" class="placeholder">Prénom : </label>
+                <br>
+                <input id="prenom" class="input" type="text" name="prenom" placeholder="Entrer votre prénom " />
+                <div class="cut"></div>
             </div>
-        </div>
-        <?php include('footer.php'); ?>
-    </body>
+            <br>
+            <div class="input-container ic1">
+                <label for="Entrer votre nom" class="placeholder">Nom : </label>
+                <br>
+                <input id="nom" class="input" type="text" name="nom" placeholder="Entrer votre nom" />
+                <div class="cut"></div>
+            </div>
+            <br>
+            <div class="input-container ic1">
+                <label for="Entrer une Adresse e-mail" class="placeholder">Adresse e-mail : </label>
+                <br>
+                <input id="Adresse e-mail" class="input" type="text" name="email" placeholder="Entrer votre adresse e-mail " />
+                <div class="cut"></div>
+            </div>
+            <br>
+            <div class="input-container ic1">
+                <label for="Entrer un identifiant" class="placeholder">Identifiant : </label>
+                <br>
+                <input id="Adresse e-mail" class="input" type="text" name="identifiant" placeholder="Entrer votre identifiant " />
+                <div class="cut"></div>
+            </div>
+            <br>
+            <div class="input-container ic1">
+                <label for="Entrer votre Mot de passe" class="placeholder">Entrer votre mot de passe :</label>
+                <br>
+                <input id="Mot de passe" class="input" type="text" name="mot_de_passe" placeholder="Entrer votre mot de passe " />
+                <div class="cut"></div>
+            </div>
+            <br>
+            <div class="input-container ic1">
+                <label for="Confirmer votre Mot de passe" class="placeholder">Confirmer votre mot de passe :</label>
+                <br>
+                <input id="Confirmer Mot de passe" class="input" type="text" name="Confirmer votre mot de passe" placeholder="Confirmer votre mot de passe " />
+                <div class="cut"></div>
+            </div>
+            <br>
+            <div class="input-container ic1">
+                <label for="role" class="placeholder">Choisissez votre type de compte : </label>
+                <br>
+                <select id="cars" name="role" class="input">
+                    <option value="acheteur">Acheteur</option>
+                    <option value="vendeur">Vendeur</option>
+                </select>
+                <div class="cut"></div>
+            </div>
+            <div id="button_bar_compte">
+                <div class="input-container-form">
+                    <div class="connec" >
+                        <input type="submit" class="bouton" name="submit" value="Créer">
+                    </div>
+                </div>
+                <br>
+                <div class="input-container-form">
+                    <div class="compt">
+                        <button type="button" class="bouton">
+                            <a href=index.php>Retour vers l'accueil</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-container-form">
+                    <div class ="retour">
+                        <button type="button" class="bouton">
+                            <a href=login.php>Retour vers page de Login</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<?php include('footer.php'); ?>
+</body>
 </html>
+
