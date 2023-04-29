@@ -59,10 +59,10 @@ if(isset($_SERVER['QUERY_STRING'])) {
             <h1><?php echo $product->nom; ?></h1>
             <p><?php echo $product->Descriptif_produit; ?></p>
             <p><?php echo $product->prix; ?></p>
-            <form class="formulaire"action="">
+            <form class="formulaire"method="post"action="ajout_panierr.php?<?php echo $product->ID;?>">
               <label class = "label"for="quantity">Quantité :</label>
               <input class="inpute" type="number" id="quantity" name="quantity" min="1" max="10" value="1">
-              <button class = "boutton-panier" type="submit">Ajouter au panier</button>
+              <button class = "boutton-panier" type="submit" action = >Ajouter au panier</button>
             </form>
             <?php else: ?>
             <p>No product found with that NAME.</p>
