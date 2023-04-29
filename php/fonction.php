@@ -14,4 +14,5 @@ ON etre_dans_panier.idTypeProduit= type_produit.ID) as pp WHERE pp.idCompte = {$
 
     return $tableau;
 }
+
 ?>
