@@ -32,7 +32,7 @@ if (is_numeric($_SERVER['QUERY_STRING']) && isset($_SESSION['info_login'])){
         // Close the database connection
         var_dump($_SESSION['cart']);
         
-        $requete = "INSERT INTO mydb.etre_dans_panier (idCompte, idTypeProduit) VALUES ($productId, 1)";
+        $requete = "INSERT INTO mydb.etre_dans_panier (idCompte, idTypeProduit) VALUES ({$_SESSION['info_login']['ID']}, {$productId})";
         if($conn->query($requete) || $_SESSION['cart']) {
             // Check if the cart is already set in the session
             if(!isset($_SESSION['cart'])) {

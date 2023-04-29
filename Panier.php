@@ -56,7 +56,7 @@ if(isset($_SESSION['cart'])) {
     <?php include "side_menu.php"; ?>
 
 <div class="menu_vente">
-  <?php if(isset($_SESSION['cart'])):?>
+  <?php if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])):?>
   <ul class="listepr">
   <?php foreach ($_SESSION['cart'] as $produits): ?>
     <li class="listeprli">
@@ -70,13 +70,18 @@ if(isset($_SESSION['cart'])) {
     </li>
   <?php endforeach; ?>
 
-  <?php elseif (!isset($_SESSION['cart'])) :?>
-    <p> panier vide</p>
+  <?php elseif ((!isset($_SESSION['cart'])) || empty($_SESSION['cart'])) :?>
+      <li class="listeprli">
+        <p> panier vide</p>
+      </li>
   <?php endif; ?>
   </ul>
   <div class="menu_gauche">
     <button class="boutton"> retour</button>
   </div>
+  <form action="acheter.php">
+    <button type="submit"> achat</button>
+  </form>
 </div>
   
   
