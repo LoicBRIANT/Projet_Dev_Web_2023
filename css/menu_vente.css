@@ -5,6 +5,9 @@ body{
 .menu_vente{
     margin-left: 15%;
     margin-top: 100px;
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-left: 50px;
 }
 .listepr{
     display: flex;
@@ -16,7 +19,23 @@ ul{
     list-style: none;
 }
 
+#button_bar_vente{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
 
+#button_bar_vente a{
+    background-color: #9d7d2b;
+    border: 3px solid #a16510;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    text-decoration: none;
+}
 .listeprli{
     border-right: 2px solid rgb(168, 104, 28);;
     border-top: 2px solid rgb(168, 104, 28);

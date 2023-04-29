@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['mot_de_passe'] = $mot_de_passe;*/
 
     // Connexion à la base de données
-    $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
+    $connexion = mysqli_connect('localhost', 'root', '');
 
     // Vérifier si la connexion a réussi
     if (!$connexion) {
@@ -170,5 +170,3 @@ if (isset($_POST['submit'])) {
         <?php include('footer.php'); ?>
     </body>
 </html>
-
-    

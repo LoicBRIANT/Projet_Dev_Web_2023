@@ -8,11 +8,12 @@ body{
   align-items: center;
   justify-content: center;
   flex-direction: row;
-
+  min-height: 100vh;
   top: calc(0vh + 100px);
   position: relative;;
   margin-bottom: 100px;
 }
+
 .listepr{
   display: flex;
   flex-direction: column;

@@ -8,6 +8,8 @@ DROP TABLE IF EXISTS Commandes;
 DROP TABLE IF EXISTS Produit;
 DROP TABLE IF EXISTS Commentaire;
 DROP TABLE IF EXISTS Etre_Dans_Panier;
+DROP TABLE IF EXISTS Etre_Vendue;
+DROP TABLE IF EXISTS Produit_Categorie;
 
 CREATE TABLE Compte(
 	ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -91,6 +93,22 @@ CREATE TABLE Etre_Dans_Panier(
     FOREIGN KEY fk_compte(idCompte) REFERENCES Compte(ID) ON DELETE CASCADE,
     FOREIGN KEY fk_type_produit(idTypeProduit) REFERENCES Type_Produit(ID) ON DELETE CASCADE
 );
+
+CREATE TABLE Etre_Vendue(
+	ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	quantite INT,
+    idCompte INT,
+    idTypeProduit INT,
+    FOREIGN KEY fk_compte(idCompte) REFERENCES Compte(ID) ON DELETE CASCADE,
+    FOREIGN KEY fk_type_produit(idTypeProduit) REFERENCES Type_Produit(ID) ON DELETE CASCADE
+);
+
+
+INSERT INTO Etre_Vendue (quantite,idCompte,idTypeProduit) VALUES (50,4,1);
+
+SELECT * FROM Etre_Vendue;
+SELECT * FROM Type_Produit;
+INSERT INTO Etre_Dans_Panier (idCompte,idTypeProduit) VALUES (4,1);
 
 CREATE TABLE Produit_Categorie(
 	ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

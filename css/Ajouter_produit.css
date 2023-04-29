@@ -1,0 +1,14 @@
+#ajout_produit{
+
+    min-height: 100vh;
+    background-color: #8f8778;
+    width: 85%;
+    flex-wrap: wrap;
+    display: flex;
+    padding-top: 40px;
+    position: relative;
+
+    top: calc(0vh + 100px);
+    left: calc(0vh + 15%);
+    margin-bottom: 100px;
+}
