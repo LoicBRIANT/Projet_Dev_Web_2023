@@ -29,7 +29,7 @@ if (isset($_SESSION['info_login'])){
     }
 
     var_dump($_SESSION['cart']);
-    //header("Location: Panier.php");
+    header("Location: Panier.php");
 }
 else {
     header("Location: login.php");
