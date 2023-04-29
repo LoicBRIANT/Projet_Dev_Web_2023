@@ -1,8 +1,6 @@
 <?php
-
 // Vérifier si le formulaire a été soumis
 if (isset($_POST['submit'])) {
-
     // Récupérer les données du formulaire
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
@@ -11,58 +9,64 @@ if (isset($_POST['submit'])) {
     $mot_de_passe = $_POST['mot_de_passe'];
     $role = $_POST['role'];
 
-/* Stocker les données dans la session
-    $_SESSION['prenom'] = $prenom;
-    $_SESSION['nom'] = $nom;
-    $_SESSION['email'] = $email;
-    $_SESSION['identifiant'] = $identifiant;
-    $_SESSION['mot_de_passe'] = $mot_de_passe;*/
-
-    // Connexion à la base de données
-    $connexion = mysqli_connect('localhost', 'root', '');
-
-    // Vérifier si la connexion a réussi
-    if (!$connexion) {
-        die('Erreur de connexion au compte : ' . mysqli_connect_error());
-    }else{
-        echo "connexion au compte";
-    }
-
-    if (!(mysqli_query($connexion,"USE myDB;"))) {
-        die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
-    }else{
-        echo "connexion a la bdd";
-    }
-
-
-    // Échapper les caractères spéciaux dans les données du formulaire pour éviter les injections SQL
-    $prenom = mysqli_real_escape_string($connexion, $prenom);
-    $nom = mysqli_real_escape_string($connexion, $nom);
-    $email = mysqli_real_escape_string($connexion, $email);
-    $identifiant = mysqli_real_escape_string($connexion, $identifiant);
-    $mot_de_passe = mysqli_real_escape_string($connexion, $mot_de_passe);
-
-
-
-    // Préparer la requête d'insertion des données dans la table Compte
-    $requete = "INSERT INTO Compte (prenom,nom,pseudo,addresse_livraison,email,motdePasse ,date_creation,adresse,telephone,nom_role) VALUES ('$prenom','$nom','$identifiant',null,'$email', '$mot_de_passe',null, null,null,'$role');";
-
-    // Exécuter la requête
-    if (mysqli_query($connexion, $requete)) {
-        echo '<div>Le compte a été créé avec succès.</div>';
+    // Vérifier si le prénom est vide
+    if (empty($prenom)) {
+        echo "<script>alert('Le prénom est obligatoire');</script>";
+    } else if (empty($nom)) {
+        echo "<script>alert('Le nom est obligatoire');</script>";
+    } else if (empty($email)) {
+        echo "<script>alert('L'email est obligatoire');</script>";
+    } else if (empty($mot_de_passe)) {
+        echo "<script>alert('Le mot de passe est obligatoire');</script>";
     } else {
-        echo '<div>Erreur lors de la création du compte : ' . mysqli_error($connexion)."</div>";
+        /* Stocker les données dans la session
+        $_SESSION['prenom'] = $prenom;
+        $_SESSION['nom'] = $nom;
+        $_SESSION['email'] = $email;
+        $_SESSION['identifiant'] = $identifiant;
+        $_SESSION['mot_de_passe'] = $mot_de_passe;*/
+
+        // Connexion à la base de données
+        $connexion = mysqli_connect('localhost', 'root', 'cytech0001');
+
+        // Vérifier si la connexion a réussi
+        if (!$connexion) {
+            die('Erreur de connexion au compte : ' . mysqli_connect_error());
+        }else{
+            echo "connexion au compte";
+        }
+
+        if (!(mysqli_query($connexion,"USE myDB;"))) {
+            die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
+        }else{
+            echo "connexion a la bdd";
+        }
+
+        // Échapper les caractères spéciaux dans les données du formulaire pour éviter les injections SQL
+        $prenom = mysqli_real_escape_string($connexion, $prenom);
+        $nom = mysqli_real_escape_string($connexion, $nom);
+        $email = mysqli_real_escape_string($connexion, $email);
+        $identifiant = mysqli_real_escape_string($connexion, $identifiant);
+        $mot_de_passe = mysqli_real_escape_string($connexion, $mot_de_passe);
+
+        // Préparer la requête d'insertion des données dans la table Compte
+        $requete = "INSERT INTO Compte (prenom,nom,pseudo,addresse_livraison,email,motdePasse ,date_creation,adresse,telephone,nom_role) VALUES ('$prenom','$nom','$identifiant',null,'$email', '$mot_de_passe',null, null,null,'$role');";
+
+        // Exécuter la requête
+        if (mysqli_query($connexion, $requete)) {
+            echo '<div>Le compte a été créé avec succès.</div>';
+        } else {
+            echo '<div>Erreur lors de la création du compte : ' . mysqli_error($connexion)."</div>";
+        }
+
+        // Fermer la connexion
+        mysqli_close($connexion);
+
+        // Redirection vers la page de connexion
+        header("Location: deconnexion.php");
+        exit; // Assure que le script s'arrête après la redirection
     }
-
-    // Fermer la connexion
-    mysqli_close($connexion);
-
-
-    // Redirection vers la page de connexion
-    header("Location: deconnexion.php");
-    exit; // Assure que le script s'arrête après la redirection
 }
-
 ?>
 
 <!DOCTYPE html>

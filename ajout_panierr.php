@@ -1,9 +1,6 @@
 <?php
 session_start();
-var_dump($_POST);
-echo(isset($_SESSION['info_login']));
-echo($_SERVER['QUERY_STRING']);
-if (is_numeric($_SERVER['QUERY_STRING'])&&isset($_SESSION['info_login'])){
+if (is_numeric($_SERVER['QUERY_STRING']) && isset($_SESSION['info_login'])){
         $productId = $_SERVER['QUERY_STRING'];
         $quantity = $_POST['quantity'];
         $userid = $_SESSION['info_login']['ID'];
@@ -33,22 +30,25 @@ if (is_numeric($_SERVER['QUERY_STRING'])&&isset($_SESSION['info_login'])){
         $product = $result->fetch_assoc();
         
         // Close the database connection
+        var_dump($_SESSION['cart']);
         
-        
-        $requete = "INSERT INTO mydb.etre_dans_panier (idCompte, idTypeProduit) VALUES ($productId, 1)";
-        if($conn->query($requete)) {
+        $requete = "INSERT INTO mydb.etre_dans_panier (idCompte, idTypeProduit) VALUES ({$_SESSION['info_login']['ID']}, {$productId})";
+        if($conn->query($requete) || $_SESSION['cart']) {
             // Check if the cart is already set in the session
             if(!isset($_SESSION['cart'])) {
                 $_SESSION['cart'] = array();
             }
-            
+            echo "rentre ici";
             // Add the product to the cart
             $product['quantity'] = $quantity;
             array_push($_SESSION['cart'], $product);
             // Redirect to the cart page
-            header('Location: panier.php');
+            header('Location: Panier.php');
             exit();
         }
         $conn->close();
+}
+if(!isset($_SESSION['info_login'])){
+    header('Location: login.php');
 }
 ?>
