@@ -70,17 +70,21 @@ if(isset($_SESSION['cart'])) {
     </li>
   <?php endforeach; ?>
 
-  <?php elseif ((!isset($_SESSION['cart'])) || empty($_SESSION['cart'])) :?>
-      <li class="listeprli">
-        <p> panier vide</p>
-      </li>
-  <?php endif; ?>
+
   </ul>
   <div class="menu_gauche">
-    <button class="boutton"> retour</button>
+      <?php elseif ( empty($_SESSION['cart'])) :?>
+          <li style="list-style: none">
+              <p style="font-size: 35px;"> panier vide</p>
+          </li>
+      <?php elseif (!isset($_SESSION['cart'])) :?>
+          <li style="list-style: none">
+              <p style="font-size: 35px;"> Non Connecter</p>
+          </li>
+      <?php endif; ?>
   </div>
   <form action="acheter.php">
-    <button type="submit"> achat</button>
+    <button type="button"> achat</button>
   </form>
 </div>
   
