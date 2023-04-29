@@ -73,18 +73,14 @@ if(isset($_SESSION['cart'])) {
 
   </ul>
   <div class="menu_gauche">
-      <?php elseif ( empty($_SESSION['cart'])) :?>
+      <?php elseif ((!isset($_SESSION['cart'])) || empty($_SESSION['cart'])) :?>
           <li style="list-style: none">
               <p style="font-size: 35px;"> panier vide</p>
-          </li>
-      <?php elseif (!isset($_SESSION['cart'])) :?>
-          <li style="list-style: none">
-              <p style="font-size: 35px;"> Non Connecter</p>
           </li>
       <?php endif; ?>
   </div>
   <form action="acheter.php">
-    <button type="button"> achat</button>
+    <button class = "boutton"type="submit"> achat</button>
   </form>
 </div>
   
