@@ -1,7 +1,6 @@
 <?php
 // Check if the product ID is set in the URL
-if(isset($_SERVER[''])) {
-    $productId = $_GET['id'];
+if(isset($_SESSION['cart'])) {
     
     // Connect to your database and retrieve the product data based on the ID
     $servername = "localhost";
@@ -57,18 +56,44 @@ if(isset($_SERVER[''])) {
     <?php include "side_menu.php"; ?>
 
 <div class="menu_vente">
+  <?php if(isset($_SESSION['cart'])):?>
   <ul class="listepr">
-  <?php
-    if (isset($product)) : 
-  ?>
-  <?php foreach ($result as $row): ?>
+  <?php foreach ($_SESSION['cart'] as $produits): ?>
     <li class="listeprli">
       <img src="https://via.placeholder.com/150" alt="Product Image">
-      <h3><?php echo $row['nom']?></h3>
-      <p><?php echo $row['description']?></p>
-      <span class="price"><?php echo $row['description']?></span>
+      <h3><?php echo $produits['nom']?></h3>
+      <p><?php echo $produits['Descriptif_produit']?></p>
+      <span class="price"><?php echo $produits['prix']?></span>
       
-      <button class="boutton"> retirer du panier</button>
+      <button class="boutton"> <a class ="tt">du panier</a> </button>
+      <script>
+        $(document).ready(function() {
+        $('.tt').click(function() {
+          var index = $(this).closest('li').index();
+          $.ajax({
+            url: 'script.php',
+            type: 'post',
+            data: {
+              removeIndex: index
+            },
+            success: function(response) {
+              console.log(response);
+              location.reload(); // reload the page after removing the item
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.log(textStatus, errorThrown);
+            }
+          });
+        });
+      });
+      </script>
+      <?php
+        if (isset($_POST['myButton'])) {
+    // Action to be executed when the button is clicked
+          $idd = array_search($produits,$_SESSION['cart']);
+          unset($_SESSION['cart'][$idd]);
+        }
+      ?>
     </li>
   <?php endforeach; ?>
 
