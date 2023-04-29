@@ -6,8 +6,8 @@ if(isset($_SERVER[''])) {
     // Connect to your database and retrieve the product data based on the ID
     $servername = "localhost";
     $username = "root";
-    $password = "cytech0001";
-    $dbname = "mydb";
+    $password = "";
+    $dbname = "myDB";
     
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
