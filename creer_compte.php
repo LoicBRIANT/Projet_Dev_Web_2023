@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
         <?php include('side_menu.php'); ?>
         <div class="creer_compte">
             <div class="rectangle">
-                <form id="myForm" action="creer_compte.php" method="post">
+                <form id="form" method="POST" action="creer_compte.php">
                     <div class="title">Création d'un compte</div>
                     <br>
                     <div class="input-container ic1">
@@ -135,17 +135,17 @@ if (isset($_POST['submit'])) {
                     <div id="button_bar_compte">
                         <div class="input-container-form">
                             <div class="connec" >
-                                <button type="submit">"Créer"</button>
+                                <input type="submit" class="bouton" name="submit" value="Créer">
                             </div>
                         </div>
                         <br>
-                        <!--<div class="input-container-form">
+                        <div class="input-container-form">
                             <div class="compt">
                                 <button type="button" class="bouton">
                                     <a href=index.php>Retour vers l'accueil</a>
                                 </button>
                             </div>
-                        </div>-->
+                        </div>
                         <div class="input-container-form">  
                             <div class ="retour">
                                 <button type="button" class="bouton">
@@ -155,36 +155,6 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                 </form>
-
-                <!-- Ce script js permet d'empêcher le formulaire d'être soumis si les champs sont vides -->
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        document.querySelector("#myForm").addEventListener("submit", function(event) {
-                        if (document.querySelector("#prenom").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'prenom'");
-                        }
-                        if (document.querySelector("#nom").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'nom'");
-                        }
-                        if (document.querySelector("#email").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'email'");
-                        }
-                        if (document.querySelector("#identifiant").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'identifiant'");
-                        }
-                        if (document.querySelector("#mot_de_passe").value.trim() === "") {
-                            event.preventDefault();
-                            alert("Veuillez remplir le champ 'mot_de_passe'");
-                        }
-                        });
-                    });
-                </script>
-
-
             </div>
         </div>
         <?php include('footer.php'); ?>
